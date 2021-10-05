@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Jonathan Lu">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Jonathan Lu">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="iOS小记 ：第一次开发完成经历     为什么要开始记小记了呢，还不是本人快要工作了，攒一些错误点，以防忘记，所以博客开始要更新一些个人见解了，勿喷，水平过低。    首先​        首先，本人上架了一款app，内容十分简单，如有什么建议还望各位多多反馈至邮箱😝。也感谢一些人的帮助，并非我一人占有这个app。  关于这个软件的开发​        这个软件可以说是个人第一款上架的app，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS小记 ：第一次开发完成经历">
+<meta property="og:url" content="https://jonathanlu98.github.io/jonathanlu.github.io/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="iOS小记 ：第一次开发完成经历     为什么要开始记小记了呢，还不是本人快要工作了，攒一些错误点，以防忘记，所以博客开始要更新一些个人见解了，勿喷，水平过低。    首先​        首先，本人上架了一款app，内容十分简单，如有什么建议还望各位多多反馈至邮箱😝。也感谢一些人的帮助，并非我一人占有这个app。  关于这个软件的开发​        这个软件可以说是个人第一款上架的app，">
+<meta property="og:locale">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/779cb133ly1g5ybmrshu9g2050050aa9.gif">
+<meta property="og:image" content="https://i.loli.net/2019/08/13/v7BgocRWesEGuhZ.png">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/779cb133ly1g5yc1w2lu3j206o06oq3t.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/779cb133ly1g5yc4gxhqrj206o06omx2.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/08/13/TUzl9u6gYJLHxX7.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/779cb133ly1g5yetdwqatj206106o0so.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/779cb133ly1g5yfi0hel0j206o06o748.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/779cb133gy1g5zgobo1kuj206o06o0sq.jpg">
+<meta property="article:published_time" content="2019-08-13T12:29:53.000Z">
+<meta property="article:modified_time" content="2021-10-05T15:34:35.762Z">
+<meta property="article:author" content="Jonathan Lu">
+<meta property="article:tag" content="iOS小记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/779cb133ly1g5ybmrshu9g2050050aa9.gif">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/favicon.ico">
+    
+    <title>iOS小记 ：第一次开发完成经历 · Jonathan&#39;s Studio</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20210823" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20210823" as="style">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="/css/mobile.css?v=20210823" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20210823" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20210823" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>Jonathan's Studio</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">Jonathan&#39;s Studio</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">iOS小记 ：第一次开发完成经历</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/random)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                iOS小记 ：第一次开发完成经历
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="iOS小记">iOS小记</a>
+    
+</div>
+
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.2k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2019/08/13</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="iOS小记-：第一次开发完成经历"><a href="#iOS小记-：第一次开发完成经历" class="headerlink" title="iOS小记 ：第一次开发完成经历"></a>iOS小记 ：第一次开发完成经历</h1><blockquote>
+<pre><code>    为什么要开始记小记了呢，还不是本人快要工作了，攒一些错误点，以防忘记，所以博客开始要更新一些个人见解了，勿喷，水平过低。
+</code></pre>
+<p><img src="http://ww1.sinaimg.cn/large/779cb133ly1g5ybmrshu9g2050050aa9.gif" alt="害羞"></p>
+</blockquote>
+<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><p>​        首先，本人上架了一款app，内容十分简单，如有什么建议还望各位多多反馈至邮箱😝。也感谢一些人的帮助，并非我一人占有这个app。</p>
+<p><img src="https://i.loli.net/2019/08/13/v7BgocRWesEGuhZ.png" alt="v7BgocRWesEGuhZ"></p>
+<h2 id="关于这个软件的开发"><a href="#关于这个软件的开发" class="headerlink" title="关于这个软件的开发"></a>关于这个软件的开发</h2><p>​        这个软件可以说是个人第一款上架的app，也是一番折腾后才实现的上架。虽然功能极其简单，没有什么拓展可言，并且是离线应用，但是上架也是走个流程，体验一下开发流程。</p>
+<p><img src="http://ww1.sinaimg.cn/large/779cb133ly1g5yc1w2lu3j206o06oq3t.jpg"></p>
+<p>​        GitHub上库内的版本属于Demo，上架版本暂未公开，核心不变。</p>
+<p>​        在这里，我总结这个软件中，我开发的一些心得。</p>
+<p><img src="http://ww1.sinaimg.cn/large/779cb133ly1g5yc4gxhqrj206o06omx2.jpg"></p>
+<h2 id="使用的编程语言"><a href="#使用的编程语言" class="headerlink" title="使用的编程语言"></a>使用的编程语言</h2><p>​        从ObjectiveC开始学习，所以前段开发使用的ObjectiveC语言进行编程，使用给我的感受就是笼笼统统，正儿八经的代码书写，使用起来和C++大体一致。到后体学习了Swift语言之后，觉得swift语言虽然缺少了oc中一些传统的细节，但是在小规模开发中使用起来还是得心应手的。但是出于前段第三方框架的约束以及代码的庞大，重新写一遍有点费事，所以采用了<strong>混编模式</strong> 进行开发，这里说一下混编的一些利弊</p>
+<h4 id="OC与Swift混编"><a href="#OC与Swift混编" class="headerlink" title="OC与Swift混编"></a>OC与Swift混编</h4><p>​        当项目中出现需要使用Swift语言的情况还是存在，比如使用的第三方框架是Swift的，或者团队协作时队友使用了Swift需要和你的进行对接，这时，在避免重写的情况下，混编也不是不可以的。</p>
+<p>​        混编的教程网上都有，Xcode会自动提示你<strong>添加桥接文件</strong> ，然后在桥接文件中添加<strong>在Swift使用的oc的头文件</strong> </p>
+<p>​        <code> #import &quot;HomePage-Shop/AlertView/AddGoddsView/AddGoodsView.h&quot;</code></p>
+<blockquote>
+<p>这里给出详细路径自然是最好，在Build过程中也防止找不到头文件的问题(时常会有)</p>
+</blockquote>
+<p>​        如果你忘记自动添加了桥接文件，可以<strong>手动创建.h文件</strong> ，格式为“<strong>项目名-Bridging-Header.h</strong>”,同时在<strong>Build Setting</strong>中添加头文件信息</p>
+<p><img src="https://i.loli.net/2019/08/13/TUzl9u6gYJLHxX7.jpg" alt="TUzl9u6gYJLHxX7"></p>
+<p>​        使用时，你会发现在Swift中使用oc代码，函数格式会稍许改变，这并不影响使用。同时，如果你使用第三方框架，即便是oc编写的，也可以在Swift文件中import，但是如果找不到，那就在桥接文件中添加。大部分能够使用，同样的函数格式会出现不相同，特殊情况下个别函数的返回参数在Swift中不能自动添加（Xcode没自动翻译的过来），会不太方便，所以最好使用同框架中Swift版本。</p>
+<p>​         那在此，我在<strong>oc中怎么调用Swift的代码</strong>呢。</p>
+<p>​         1、确保将框架 <strong>target</strong> 的 <strong>Build Settings &gt; Packaging &gt; Defines Module</strong> 设置为 Yes</p>
+<p>​         2、将 <strong>Build setting</strong> 中的 <strong>Product Module Name</strong> 修改为工程名。</p>
+<p>​        之后的项目会自动生成swift的头文件头文件名称为Product Module Name-Swift.h (Product Module Name为工程名)</p>
+<p>​        3、然后只需在需要的oc文件中<strong>添加</strong></p>
+<p>​        <code>#import &quot;Flower-Swift.h&quot;</code>（Flower改为自己的工程名）</p>
+<p>​        就可以使用Swift代码了，这里说一下这个文件。这个文件由Xcode自动生成映射，里面包含了Swift文件中代码的oc版本。毕竟Swift特性是不需要用户import自定义Swift文件（Swift不同文件之间互通的意思），所以Flower-Swift.h包含了所有类的信息。</p>
+<p>​        但是如果你在oc文件中无法使用Swift的代码（除开私有）,你就需要在Swift代码中添加**@objc** 来暴露给oc文件。</p>
+<p>​        用法说到这，好处也看到了，自动帮你翻译过来省事</p>
+<p><img src="http://ww1.sinaimg.cn/large/779cb133ly1g5yetdwqatj206106o0so.jpg" alt="开心"></p>
+<p>​        但是，也看到了一些弊端。Flower-Swift.h文件包含了Swift代码的信息，但势必需要先Build然后才能使用，也就是说你更新了代码，需要先Build然后再在oc中使用，麻烦。</p>
+<p>​        其次，这样的操作，随着文件数增多，增加了编译的时间。同时，Swift中拥有OPtional Value的特性，在oc中没有，在翻译过程中，通常oc语言在Swift的体现为带有？的参数，在进行Swift书写势必会出现optional的判断是否一定存在该值，不符合Swift的优雅编程的思想。</p>
+<p>​        同时，当你在run的时候，oc语言一些在控制台输出可能也会有所影响，在断点的时候参数的print信息可能无法直接体现（因为swift无法判断当前带有？的值是否为该类型）。</p>
+<p>​        此外，打包过程中，生成的本地IPA文件会变得非常的大（我的app工程20多，打包100多），因为其中包含了SwiftSupport文件，但是上传到APP Store后体积会缩小到正常大小。</p>
+<p>​        注意的是，混编的项目，可能还涉及到动态编程问题，具体本人没怎么研究，所以百度下混编的更多资料避免踩坑。在release下无法进行Build具体也不清楚，我打包也是用的debug。（时间长了我也忘了，报错位置的确是在混编的桥接文件上，提示找不到对应文件）</p>
+<p><img src="http://ww1.sinaimg.cn/large/779cb133ly1g5yfi0hel0j206o06o748.jpg" alt="凉凉"></p>
+<p>​         所以，对于大工程项目，多人协作时，最好先确定使用什么样的语言，同时混编的问题也不大，协作下各自分工制作完善，整合的时候只是对接接口的话其实无伤大雅。</p>
+<p>​        好吧，说完这个问题，接下来说一下关于我在开发中的另一个选择。如何选择UI搭建的方式。</p>
+<h2 id="UI搭建的方式"><a href="#UI搭建的方式" class="headerlink" title="UI搭建的方式"></a>UI搭建的方式</h2><p>​        为什么要说这个呢，因为其中发生了一些事，我觉得让自己十分头疼。</p>
+<p>​        一开始，我使用的是StoryBoard进行界面的开发，因为是入门的一种方式，并且拖拽控件和自动布局很舒服，觉得开发前景一片光明。可是。当你不仅仅只是局限在简单的界面搭建，由于业务的增加以及更加复杂的逻辑，你不能很好的控制你的界面的时候，头疼之处就来了。</p>
+<p>​        很大层面上，StoryBoard并不是好的开发方式，其中还有一个更大的缺点在于他不是随着你的代码而更新。这么说把，如果iOS出现新的控件或者某个控件更新了属性什么的，特性显示在新的Xcode上，当你使用新的版本时，会出现不兼容的症状，此时，你就需要更改相对应的界面。在这里，有一个血的教训，由于本人电脑问题重装了，并且没有及时上传私有库，导致了之前的版本丢失，这倒没事，现在的版本在。为了适配iOS13，当下载新的beta版本，打开了StoryBoard继续项目。</p>
+<p>​        好了，悲剧来了。由于beta不能打包以及上传App Store（你只能使用正式版进行打包和上传，否则审核被拒，同样的理由，不能使用beta版发布），我只好回到正式版。然而StoryBoard不能打开了，提示打开失败，因为新的版本的cell contentView有了变化，旧版本不能用。好了，这下子就什么都没了。</p>
+<p><img src="http://ww1.sinaimg.cn/large/779cb133gy1g5zgobo1kuj206o06o0sq.jpg" alt="哭了"></p>
+<p>​        即便你寻找到网上的方法，在源码中删除了特性的警告活着更改了故事版的版本属性，但是由于beta版本自动更改了contentView，正式版本还是不能用的，因为不存在这样的代码。有备份的还好，没得的就是重做了，呜呜呜、</p>
+<p>​        所以，我个人之前会使用<strong>xib+代码</strong>的形式进行界面开发，但是<strong>纯代码</strong>的方式我也更加推荐。</p>
+<p>​         xib+代码的形式比纯代码更具有效率，比如cell的UI使用xib，这样直观明了。本人在xib+代码使用后，渐渐过渡到纯代码的开发，因为还要考虑性能的问题，纯代码的书写会让你的思路更加清楚（前提是命名要规范），其次，像一些最底层的view有时你需要贴合屏幕底部的约束使用代码形式会比较明了，也推荐使用masonry这样的优秀框架帮助你的约束。</p>
+<p>        </p>
+<p>​        这次小记就到这啦~  过段日子再写 ：）</p>
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://jonathanlu98.github.io/jonathanlu.github.io">Jonathan Lu</a>
+            <p>原文链接：<a href="https://jonathanlu98.github.io/jonathanlu.github.io/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/">https://jonathanlu98.github.io/jonathanlu.github.io/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/</a>
+            <p>发表日期：<a href="https://jonathanlu98.github.io/jonathanlu.github.io/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/">August 13th 2019, 8:29:53 pm</a>
+            <p>更新日期：<a href="https://jonathanlu98.github.io/jonathanlu.github.io/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/">October 5th 2021, 11:34:35 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/10/23/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/" title="博客网站的迁移">
+                    <div class="nextTitle">博客网站的迁移</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/01/19/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Reveal/" title="如何使用Reveal">
+                    <div class="prevTitle">如何使用Reveal</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80MjIxMC8xODc1Nw==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活 JavaScript</noscript>
+    </div>
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:jonathanlu1998@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/jonathanlu98" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS%E5%B0%8F%E8%AE%B0-%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86"><span class="toc-number">1.</span> <span class="toc-text">iOS小记 ：第一次开发完成经历</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A6%96%E5%85%88"><span class="toc-number">1.1.</span> <span class="toc-text">首先</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%BF%99%E4%B8%AA%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%BC%80%E5%8F%91"><span class="toc-number">1.2.</span> <span class="toc-text">关于这个软件的开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80"><span class="toc-number">1.3.</span> <span class="toc-text">使用的编程语言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#OC%E4%B8%8ESwift%E6%B7%B7%E7%BC%96"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">OC与Swift混编</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UI%E6%90%AD%E5%BB%BA%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">UI搭建的方式</span></a></li></ol></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 14
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2020 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/29</span>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%94%EF%BC%89%E6%A0%91%E7%BB%BC%E5%90%88/">算法基础（五）树综合</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/29</span>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%9B%9B%EF%BC%89%E9%93%BE%E8%A1%A8%E7%BB%BC%E5%90%88/">算法基础（四）链表综合</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/29</span>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/">算法基础（三）排序和搜索</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/29</span>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">算法基础（六） 题目综合</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span>
+            <a class="archive-post-title" href="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/">实习面试整理</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span>
+            <a class="archive-post-title" href="/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法基础（二）数据结构</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/03</span>
+            <a class="archive-post-title" href="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/">算法基础（一）基本的数据结构（数组、集合、字典、字符串）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span>
+            <a class="archive-post-title" href="/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">回顾C、C++、Java</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/06</span>
+            <a class="archive-post-title" href="/2020/03/06/OC-%E5%A3%B0%E6%98%8E%E5%B0%8F%E8%AE%B0/">OC-声明小记（一）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/05</span>
+            <a class="archive-post-title" href="/2020/03/05/OC-%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%AD%A6%E9%97%AE/">OC-枚举的学问</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2019 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/12</span>
+            <a class="archive-post-title" href="/2019/11/12/iSCUEC%20Demo%E7%9A%84%E5%8F%91%E5%B8%83/">项目分享 ：iSCUEC Demo 发布了</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span>
+            <a class="archive-post-title" href="/2019/10/23/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/">博客网站的迁移</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/13</span>
+            <a class="archive-post-title" href="/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/">iOS小记 ：第一次开发完成经历</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/19</span>
+            <a class="archive-post-title" href="/2019/01/19/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Reveal/">如何使用Reveal</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="iOS小记">
+                <span class="iconfont-archer">&#xe606;</span>
+                iOS小记
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="项目分享">
+                <span class="iconfont-archer">&#xe606;</span>
+                项目分享
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="分享">
+                <span class="iconfont-archer">&#xe606;</span>
+                分享
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="实习准备">
+                <span class="iconfont-archer">&#xe606;</span>
+                实习准备
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMeta = {
+        root: "/",
+        author: "Jonathan Lu"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20210823"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20210823"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20210823" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>
