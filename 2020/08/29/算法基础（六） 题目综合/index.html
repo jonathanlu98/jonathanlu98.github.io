@@ -22,22 +22,22 @@
     <meta name="description" content="算法基础（六） 题目综合一些知识时间复杂度在 计算机科学 中， 算法 的时间复杂度（Time complexity）是一个 函数 ，它定性描述该算法的运行时间。这是一个代表算法输入值的 字符串 的长度的函数。时间复杂度常用 大O符号 表述，不包括这个函数的低阶项和首项系数。使用这种方式时，时间复杂度可被称为是 渐近 的，亦即考察输入值大小趋近无穷时的情况。例如，如果一个算法对于任何大小为 n （必">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法基础（六） 题目综合">
-<meta property="og:url" content="https://jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/index.html">
+<meta property="og:url" content="http://example.com/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="算法基础（六） 题目综合一些知识时间复杂度在 计算机科学 中， 算法 的时间复杂度（Time complexity）是一个 函数 ，它定性描述该算法的运行时间。这是一个代表算法输入值的 字符串 的长度的函数。时间复杂度常用 大O符号 表述，不包括这个函数的低阶项和首项系数。使用这种方式时，时间复杂度可被称为是 渐近 的，亦即考察输入值大小趋近无穷时的情况。例如，如果一个算法对于任何大小为 n （必">
 <meta property="og:locale">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/question_11.jpg">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/65CFA8B5-503C-4F59-9329-09CEDB3E5217.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/F880187C-A979-4938-8312-F809C04E4666.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/bitmask4.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/a9944722e9307ade27ab98e36e3f29e4f5acd242007ae46c50e01ead122b9d45-image.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/5a8ad63b91ea09d46ac0b44cbf3325c2a3c2199ec232ec562135fbcf2ea9e70d-40-1.png">
+<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/question_11.jpg">
+<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/65CFA8B5-503C-4F59-9329-09CEDB3E5217.png">
+<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/F880187C-A979-4938-8312-F809C04E4666.png">
+<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/bitmask4.png">
+<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/a9944722e9307ade27ab98e36e3f29e4f5acd242007ae46c50e01ead122b9d45-image.png">
+<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/5a8ad63b91ea09d46ac0b44cbf3325c2a3c2199ec232ec562135fbcf2ea9e70d-40-1.png">
 <meta property="article:published_time" content="2020-08-29T13:54:01.000Z">
 <meta property="article:modified_time" content="2021-10-05T15:34:35.800Z">
 <meta property="article:author" content="Jonathan Lu">
 <meta property="article:tag" content="实习准备">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jonathanlu98.github.io/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/question_11.jpg">
+<meta name="twitter:image" content="http://example.com/jonathanlu.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/question_11.jpg">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
@@ -937,10 +937,10 @@
     <!-- license -->
     
         <div class="license-wrapper">
-            <p>原文作者：<a href="https://jonathanlu98.github.io">Jonathan Lu</a>
-            <p>原文链接：<a href="https://jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">https://jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/</a>
-            <p>发表日期：<a href="https://jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">August 29th 2020, 9:54:01 pm</a>
-            <p>更新日期：<a href="https://jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">October 5th 2021, 11:34:35 pm</a>
+            <p>原文作者：<a href="http://example.com">Jonathan Lu</a>
+            <p>原文链接：<a href="http://example.com/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">http://example.com/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/</a>
+            <p>发表日期：<a href="http://example.com/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">August 29th 2020, 9:54:01 pm</a>
+            <p>更新日期：<a href="http://example.com/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">October 5th 2021, 11:34:35 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
