@@ -22,20 +22,20 @@
     <meta name="description" content="回顾C、C++、Java 在阿里的第一面的时候，出现了基础知识仍然不清不楚的现象。就此在这里回顾一些知识，以及他们和Apple的开发的关系。本文大量收集了Wiki内容以及相关博客的内容，并非原创，只做收集整理个人学习。    C语言C语言是一门面向过程的、抽象化的通用程序设计语言，广泛应用于底层开发。C语言能以简易的方式 编译 、处理低级 存储器。C语言仅产生少量的 机器码 以及不需要任何运行环境">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回顾C、C++、Java">
-<meta property="og:url" content="http://example.com/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/index.html">
+<meta property="og:url" content="https://jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="回顾C、C++、Java 在阿里的第一面的时候，出现了基础知识仍然不清不楚的现象。就此在这里回顾一些知识，以及他们和Apple的开发的关系。本文大量收集了Wiki内容以及相关博客的内容，并非原创，只做收集整理个人学习。    C语言C语言是一门面向过程的、抽象化的通用程序设计语言，广泛应用于底层开发。C语言能以简易的方式 编译 、处理低级 存储器。C语言仅产生少量的 机器码 以及不需要任何运行环境">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/20180813114655864.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/20180813114655864.png">
 <meta property="article:published_time" content="2020-04-10T06:37:00.000Z">
 <meta property="article:modified_time" content="2021-10-05T15:34:35.773Z">
 <meta property="article:author" content="Jonathan Lu">
 <meta property="article:tag" content="iOS小记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/20180813114655864.png">
+<meta name="twitter:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/20180813114655864.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="icon" href="/jonathanlu98.github.io/assets/favicon.ico">
     
     <title>回顾C、C++、Java · Jonathan&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
@@ -150,7 +150,7 @@
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        src: url("/jonathanlu98.github.io/font/Oswald-Regular.ttf");
     }
 
     body {
@@ -198,15 +198,15 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=20210823" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=20210823" as="style">
-    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
-    <link rel="stylesheet" href="/css/mobile.css?v=20210823" media="(max-width: 960px)">
+    <link rel="preload" href="/jonathanlu98.github.io/css/style.css?v=20210823" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/jonathanlu98.github.io/css/dark.css?v=20210823" as="style">
+    <link rel="stylesheet" href="/jonathanlu98.github.io/css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="/jonathanlu98.github.io/css/mobile.css?v=20210823" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=20210823" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=20210823" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/jonathanlu98.github.io/scripts/main.js?v=20210823" as="script">
+    <link rel="preload" href="/jonathanlu98.github.io/scripts/dark.js?v=20210823" as="script">
+    <link rel="preload" href="/jonathanlu98.github.io/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -220,7 +220,7 @@
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/lib/jquery.min.js" />')
+            document.write('<script src="/jonathanlu98.github.io/lib/jquery.min.js" />')
         }
     </script>
     
@@ -250,7 +250,7 @@
         </span>
         <!-- back to home page text -->
         <span class="home-link header-element">
-            <a href=/>Jonathan's Studio</a>
+            <a href=/jonathanlu98.github.io/>Jonathan's Studio</a>
         </span>
     </div>
     <!-- toggle banner for post layout -->
@@ -259,7 +259,7 @@
             <div class="banner">
         
             <div class="blog-title header-element">
-                <a href="/">Jonathan&#39;s Studio</a>
+                <a href="/jonathanlu98.github.io/">Jonathan&#39;s Studio</a>
             </div>
             <div class="post-title header-element">
                 <a href="#" class="post-name">回顾C、C++、Java</a>
@@ -485,14 +485,14 @@
     [
       'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
-      "/lib/webfontloader.min.js",
+      "/jonathanlu98.github.io/lib/webfontloader.min.js",
     ],
     asyncCb,
     asyncErr
   )
 </script>
 
-            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <img class="loading" src="/jonathanlu98.github.io/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
@@ -555,7 +555,7 @@
 <ul>
 <li>虚继承是面向对象编程中的一种技术，是指一个指定的基类，在 继承体系结构中，将其成员数据实例共享给也从这个基类型直接或间接派生的其它类。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line"> public:</span><br><span class="line">  virtual void eat();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// Two classes virtually inheriting Animal:</span><br><span class="line">class Mammal : public virtual Animal &#123;</span><br><span class="line"> public:</span><br><span class="line">  virtual void breathe();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class WingedAnimal : public virtual Animal &#123;</span><br><span class="line"> public:</span><br><span class="line">  virtual void flap();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// A bat is still a winged mammal</span><br><span class="line">class Bat : public Mammal, public WingedAnimal &#123;</span><br><span class="line">&#125;;</span><br><span class="line">//如果在Animal类在派生中不使用virtual修饰的话 实例化Bat并调用eat()方法时会出现歧义，编译器并不知道你的eat()方法是来自Mammal还是WingedAnimal的基类的实例（继承结构的初始化实例从基类开始调用构造函数，析构从子类开始调用析构函数），因此使用virtual创造共享实例来使得animal类的实例在Bat的实例中唯一。</span><br><span class="line"></span><br><span class="line">//一个类如果不希望被继承，类似于Java中的具有finally性质的类，这在C++中可以用虚继承来实现(或者基类构造方法private来实现finally效果，产生编译错误)：</span><br><span class="line">class Final &#123;</span><br><span class="line"> protected:</span><br><span class="line">  Final() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class  Parent: private virtual Final &#123;</span><br><span class="line"> public:</span><br><span class="line">  Parent() &#123;&#125;</span><br><span class="line"> private:</span><br><span class="line">  int a, b, c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Child : public Parent &#123;</span><br><span class="line"> public:</span><br><span class="line">  Child() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Parent再虚继承一个父类Final，Final的构造函数放在protected区中，而 Parent继承时使用private(和 virtual)描述符，这样会达到下面的效果</span><br><span class="line">		1. Final的构造函数在protected中，且Parent用private继承 —— 因此其构造函数只能在Parent调用</span><br><span class="line">		2. Parent虚继承了Final —— 因此Parent的子类Child不会通过Parent来调用 Final的构造函数，而是自己调用Final的构造函数</span><br><span class="line">以上两点加起来，就使得Final的子类 “进退两难”，引发编译错误</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><p>除了封装与继承外，C++还提供了多态功能，面向对象的精神在于多态（Polymorphism），一般的多态，是指动态多态，系使用继承和动态绑定（Dynamic Binding）实现，使用多态可创建起继承体系（Inheritance hierarchy）。类（class）与继承只是达成多态中的一种手段，所以称面向对象而非面向类。<br>多态又分成静态多态（Static Polymorphism）与动态多态（Dynamic Polymorphism）。C++语言支持的动态多态必须结合继承和动态绑定（Dynamic Binding）方式实现。静态多态是指编译时决定的多态，包括重载和以模板（template）实现多态的方法即参数化类型（Parameterized Types），是使用宏（macro）的“程序代码膨胀法”达到多态效果。<br>类型转换（type cast）也是一种非参数化（ad hoc）多态的概念，C++提供dynamic_cast, static_cast等运算符来实现强制类型转换（Coercion）。<br>操作数重载（operator overloading）或函数重载（function overloading）也算是多态的概念。<br><img src="/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/20180813114655864.png"></p>
+<h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><p>除了封装与继承外，C++还提供了多态功能，面向对象的精神在于多态（Polymorphism），一般的多态，是指动态多态，系使用继承和动态绑定（Dynamic Binding）实现，使用多态可创建起继承体系（Inheritance hierarchy）。类（class）与继承只是达成多态中的一种手段，所以称面向对象而非面向类。<br>多态又分成静态多态（Static Polymorphism）与动态多态（Dynamic Polymorphism）。C++语言支持的动态多态必须结合继承和动态绑定（Dynamic Binding）方式实现。静态多态是指编译时决定的多态，包括重载和以模板（template）实现多态的方法即参数化类型（Parameterized Types），是使用宏（macro）的“程序代码膨胀法”达到多态效果。<br>类型转换（type cast）也是一种非参数化（ad hoc）多态的概念，C++提供dynamic_cast, static_cast等运算符来实现强制类型转换（Coercion）。<br>操作数重载（operator overloading）或函数重载（function overloading）也算是多态的概念。<br><img src="/jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/20180813114655864.png"></p>
 <h5 id="静态多态中的函数重载"><a href="#静态多态中的函数重载" class="headerlink" title="静态多态中的函数重载"></a>静态多态中的函数重载</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int Add(int left, int right)</span><br><span class="line">&#123;</span><br><span class="line">    return left + right;</span><br><span class="line">&#125;</span><br><span class="line">double Add(double left, int right)</span><br><span class="line">&#123;</span><br><span class="line">    return left + right;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Add(10, 20);</span><br><span class="line">    //Add(10.0, 20.0);  //这是一个问题代码</span><br><span class="line">    Add(10.0,20);  //正常代码</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可以看出来， <del>静态多态是编译器在编译期间完成的，编译器会根据实参类型来选择调用合适的函数，如果有合适的函数可以调用就调，没有的话就会发出警告或者报错</del></p>
 <h5 id="动态多态中的虚函数"><a href="#动态多态中的虚函数" class="headerlink" title="动态多态中的虚函数"></a>动态多态中的虚函数</h5><p>虚函数概念的引入可以解决这样的问题：<br>在面向对象程序设计中，派生类继承自基类。使用指针或引用访问派生类对象时，指针或引用本身所指向的类型可以是基类而不是派生类。如果派生类覆盖了基类中的方法，通过上述指针或引用调用该方法时，可以有两种结果：</p>
@@ -647,10 +647,10 @@
     <!-- license -->
     
         <div class="license-wrapper">
-            <p>原文作者：<a href="http://example.com">Jonathan Lu</a>
-            <p>原文链接：<a href="http://example.com/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">http://example.com/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/</a>
-            <p>发表日期：<a href="http://example.com/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">April 10th 2020, 2:37:00 pm</a>
-            <p>更新日期：<a href="http://example.com/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">October 5th 2021, 11:34:35 pm</a>
+            <p>原文作者：<a href="https://jonathanlu98.github.io">Jonathan Lu</a>
+            <p>原文链接：<a href="https://jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">https://jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/</a>
+            <p>发表日期：<a href="https://jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">April 10th 2020, 2:37:00 pm</a>
+            <p>更新日期：<a href="https://jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">October 5th 2021, 11:34:35 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -659,7 +659,7 @@
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/" title="算法基础（一）基本的数据结构（数组、集合、字典、字符串）">
+                <a href="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/" title="算法基础（一）基本的数据结构（数组、集合、字典、字符串）">
                     <div class="nextTitle">算法基础（一）基本的数据结构（数组、集合、字典、字符串）</div>
                 </a>
             
@@ -667,7 +667,7 @@
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2020/03/06/OC-%E5%A3%B0%E6%98%8E%E5%B0%8F%E8%AE%B0/" title="OC-声明小记（一）">
+                <a href="/jonathanlu98.github.io/2020/03/06/OC-%E5%A3%B0%E6%98%8E%E5%B0%8F%E8%AE%B0/" title="OC-声明小记（一）">
                     <div class="prevTitle">OC-声明小记（一）</div>
                 </a>
             
@@ -744,7 +744,7 @@
             
                 <span class="iconfont-archer wechat" title=wechat>
                     
-                    <img class="profile-qr" src="/assets/example_qr.png" />
+                    <img class="profile-qr" src="/jonathanlu98.github.io/assets/example_qr.png" />
                 </span>
             
         
@@ -1003,61 +1003,61 @@
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%94%EF%BC%89%E6%A0%91%E7%BB%BC%E5%90%88/">算法基础（五）树综合</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%94%EF%BC%89%E6%A0%91%E7%BB%BC%E5%90%88/">算法基础（五）树综合</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%9B%9B%EF%BC%89%E9%93%BE%E8%A1%A8%E7%BB%BC%E5%90%88/">算法基础（四）链表综合</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%9B%9B%EF%BC%89%E9%93%BE%E8%A1%A8%E7%BB%BC%E5%90%88/">算法基础（四）链表综合</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/">算法基础（三）排序和搜索</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/">算法基础（三）排序和搜索</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">算法基础（六） 题目综合</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">算法基础（六） 题目综合</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">07/02</span>
-            <a class="archive-post-title" href="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/">实习面试整理</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/">实习面试整理</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/10</span>
-            <a class="archive-post-title" href="/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法基础（二）数据结构</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法基础（二）数据结构</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">05/03</span>
-            <a class="archive-post-title" href="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/">算法基础（一）基本的数据结构（数组、集合、字典、字符串）</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/">算法基础（一）基本的数据结构（数组、集合、字典、字符串）</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/10</span>
-            <a class="archive-post-title" href="/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">回顾C、C++、Java</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">回顾C、C++、Java</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/06</span>
-            <a class="archive-post-title" href="/2020/03/06/OC-%E5%A3%B0%E6%98%8E%E5%B0%8F%E8%AE%B0/">OC-声明小记（一）</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/03/06/OC-%E5%A3%B0%E6%98%8E%E5%B0%8F%E8%AE%B0/">OC-声明小记（一）</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/05</span>
-            <a class="archive-post-title" href="/2020/03/05/OC-%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%AD%A6%E9%97%AE/">OC-枚举的学问</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/03/05/OC-%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%AD%A6%E9%97%AE/">OC-枚举的学问</a>
         </li>
     
         
@@ -1072,25 +1072,25 @@
         
         <li class="archive-post-item">
             <span class="archive-post-date">11/12</span>
-            <a class="archive-post-title" href="/2019/11/12/iSCUEC%20Demo%E7%9A%84%E5%8F%91%E5%B8%83/">项目分享 ：iSCUEC Demo 发布了</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/11/12/iSCUEC%20Demo%E7%9A%84%E5%8F%91%E5%B8%83/">项目分享 ：iSCUEC Demo 发布了</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span>
-            <a class="archive-post-title" href="/2019/10/23/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/">博客网站的迁移</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/10/23/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/">博客网站的迁移</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/13</span>
-            <a class="archive-post-title" href="/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/">iOS小记 ：第一次开发完成经历</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/">iOS小记 ：第一次开发完成经历</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">01/19</span>
-            <a class="archive-post-title" href="/2019/01/19/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Reveal/">如何使用Reveal</a>
+            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/01/19/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Reveal/">如何使用Reveal</a>
         </li>
     
     </div>
@@ -1141,7 +1141,7 @@
         <!-- site-meta -->
         <script>
     var siteMeta = {
-        root: "/",
+        root: "/jonathanlu98.github.io/",
         author: "Jonathan Lu"
     }
 </script>
@@ -1151,9 +1151,9 @@
 
 
         <!-- main func -->
-        <script src="/scripts/main.js?v=20210823"></script>
+        <script src="/jonathanlu98.github.io/scripts/main.js?v=20210823"></script>
         <!-- dark mode -->
-        <script src="/scripts/dark.js?v=20210823"></script>
+        <script src="/jonathanlu98.github.io/scripts/dark.js?v=20210823"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
@@ -1166,7 +1166,7 @@
         
         <!-- async load share.js -->
         
-            <script src="/scripts/share.js?v=20210823" async></script>
+            <script src="/jonathanlu98.github.io/scripts/share.js?v=20210823" async></script>
         
         <!-- mermaid -->
         
