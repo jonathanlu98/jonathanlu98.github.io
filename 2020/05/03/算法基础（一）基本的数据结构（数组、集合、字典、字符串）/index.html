@@ -26,22 +26,22 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="算法基础（一）基本的数据结构（数组、集合、字典、字符串）数组NSArray与NSMutableArray在Objective-C中，数组被分成NSArray（不可变数组）与NSMutableArray（可变数组）  数组是一个对象，是任意类型对象地址的集合，OC的数组可以存储不同类型的对象。 OC的数组只能存储对象，不能存放 简单的数据类型（int, float, NSInteger…）除非通过一">
 <meta property="og:locale">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/800BEDE9-E5E9-4E8F-8117-EC27598B5473.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/F61B4A38-5C8C-4938-9BD9-508FB096C825.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/C025C255-D69E-42A5-942A-BE405134DF0E.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/E4763646-48CA-4C68-870A-31B280EEAFA0.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/F4A861CA-254B-4255-BAC0-FEF2FB2D5169.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/0F5000AF-589A-4128-8615-2A6EAAF97D82.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/6FB5C7DB-1446-47D6-A65C-B751C44B4021.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/800BEDE9-E5E9-4E8F-8117-EC27598B5473.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/F61B4A38-5C8C-4938-9BD9-508FB096C825.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/C025C255-D69E-42A5-942A-BE405134DF0E.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/E4763646-48CA-4C68-870A-31B280EEAFA0.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/F4A861CA-254B-4255-BAC0-FEF2FB2D5169.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/0F5000AF-589A-4128-8615-2A6EAAF97D82.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/6FB5C7DB-1446-47D6-A65C-B751C44B4021.png">
 <meta property="article:published_time" content="2020-05-03T12:41:00.000Z">
 <meta property="article:modified_time" content="2021-10-05T15:34:35.784Z">
 <meta property="article:author" content="Jonathan Lu">
 <meta property="article:tag" content="实习准备">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/800BEDE9-E5E9-4E8F-8117-EC27598B5473.png">
+<meta name="twitter:image" content="https://jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/800BEDE9-E5E9-4E8F-8117-EC27598B5473.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="icon" href="/jonathanlu98.github.io/assets/favicon.ico">
+    <link rel="icon" href="/assets/favicon.ico">
     
     <title>算法基础（一）基本的数据结构（数组、集合、字典、字符串） · Jonathan&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
@@ -156,7 +156,7 @@
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
-        src: url("/jonathanlu98.github.io/font/Oswald-Regular.ttf");
+        src: url("/font/Oswald-Regular.ttf");
     }
 
     body {
@@ -204,15 +204,15 @@
     }
 </style>
 
-    <link rel="preload" href="/jonathanlu98.github.io/css/style.css?v=20210823" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/jonathanlu98.github.io/css/dark.css?v=20210823" as="style">
-    <link rel="stylesheet" href="/jonathanlu98.github.io/css/dark.css" media="(prefers-color-scheme: dark)">
-    <link rel="stylesheet" href="/jonathanlu98.github.io/css/mobile.css?v=20210823" media="(max-width: 960px)">
+    <link rel="preload" href="/css/style.css?v=20210823" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20210823" as="style">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="/css/mobile.css?v=20210823" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/jonathanlu98.github.io/scripts/main.js?v=20210823" as="script">
-    <link rel="preload" href="/jonathanlu98.github.io/scripts/dark.js?v=20210823" as="script">
-    <link rel="preload" href="/jonathanlu98.github.io/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/scripts/main.js?v=20210823" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20210823" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -226,7 +226,7 @@
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/jonathanlu98.github.io/lib/jquery.min.js" />')
+            document.write('<script src="/lib/jquery.min.js" />')
         }
     </script>
     
@@ -256,7 +256,7 @@
         </span>
         <!-- back to home page text -->
         <span class="home-link header-element">
-            <a href=/jonathanlu98.github.io/>Jonathan's Studio</a>
+            <a href=/>Jonathan's Studio</a>
         </span>
     </div>
     <!-- toggle banner for post layout -->
@@ -265,7 +265,7 @@
             <div class="banner">
         
             <div class="blog-title header-element">
-                <a href="/jonathanlu98.github.io/">Jonathan&#39;s Studio</a>
+                <a href="/">Jonathan&#39;s Studio</a>
             </div>
             <div class="post-title header-element">
                 <a href="#" class="post-name">算法基础（一）基本的数据结构（数组、集合、字典、字符串）</a>
@@ -491,14 +491,14 @@
     [
       'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
-      "/jonathanlu98.github.io/lib/webfontloader.min.js",
+      "/lib/webfontloader.min.js",
     ],
     asyncCb,
     asyncErr
   )
 </script>
 
-            <img class="loading" src="/jonathanlu98.github.io/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
@@ -506,19 +506,19 @@
 <ul>
 <li>数组是一个对象，是任意类型对象地址的集合，OC的数组可以存储不同类型的对象。</li>
 <li>OC的数组只能存储对象，不能存放 简单的数据类型（int, float, NSInteger…）除非通过一些手段把简单数据类型变成对象。在C语言中的数组可以保存任意类型的数据。<br>如果想要直接使用数据类型可以在基本类型前加@，将c的字符串或者基本类型（int、double）转化为oc的对象。如果基本类型变量作为元素并添加@则是不正确的。</li>
-<li>存储的内存是连续的（这取决于你的元素是在数组创建时才初始化元素，如果<br><img src="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/800BEDE9-E5E9-4E8F-8117-EC27598B5473.png"><br>元素变量事先初始化过或者你的初始化的方式不一致，则可能不会是连续，如果元素的类型不同，他的内存地址在数组遍历上也会不一定是连续的，但是相同的类型内存地址上会体现连续）<br><img src="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/F61B4A38-5C8C-4938-9BD9-508FB096C825.png"><br><img src="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/C025C255-D69E-42A5-942A-BE405134DF0E.png"><br><img src="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/E4763646-48CA-4C68-870A-31B280EEAFA0.png"><br>可变数组在内存上的体现也是如此，只不过NSMutableArray可以支持不确定的数量以及动态的变化（增删改）。变化形式上比NSArray要好。<br>内存管理ARC会管理对象的释放以及循环利用（），如果想要对象变量开辟两个内存地址，需要理解copy与mutableCopy。<br>这里的内存地址的样式不同，也体现了栈区和堆区的概念。<blockquote>
-<p>拖站阅读：<br><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000007395555">ios - 大家中午好，xcode 中如何查看一个对象是在堆区还是在栈区？ - SegmentFault 思否</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hangdada/p/4982989.html">OC中栈区与堆区的内存概念解析 - 航大大 - 博客园</a><br><img src="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/F4A861CA-254B-4255-BAC0-FEF2FB2D5169.png"><br>这里对于数组的用法不做过多的介绍，后期补充。</p>
+<li>存储的内存是连续的（这取决于你的元素是在数组创建时才初始化元素，如果<br><img src="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/800BEDE9-E5E9-4E8F-8117-EC27598B5473.png"><br>元素变量事先初始化过或者你的初始化的方式不一致，则可能不会是连续，如果元素的类型不同，他的内存地址在数组遍历上也会不一定是连续的，但是相同的类型内存地址上会体现连续）<br><img src="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/F61B4A38-5C8C-4938-9BD9-508FB096C825.png"><br><img src="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/C025C255-D69E-42A5-942A-BE405134DF0E.png"><br><img src="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/E4763646-48CA-4C68-870A-31B280EEAFA0.png"><br>可变数组在内存上的体现也是如此，只不过NSMutableArray可以支持不确定的数量以及动态的变化（增删改）。变化形式上比NSArray要好。<br>内存管理ARC会管理对象的释放以及循环利用（），如果想要对象变量开辟两个内存地址，需要理解copy与mutableCopy。<br>这里的内存地址的样式不同，也体现了栈区和堆区的概念。<blockquote>
+<p>拖站阅读：<br><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000007395555">ios - 大家中午好，xcode 中如何查看一个对象是在堆区还是在栈区？ - SegmentFault 思否</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hangdada/p/4982989.html">OC中栈区与堆区的内存概念解析 - 航大大 - 博客园</a><br><img src="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/F4A861CA-254B-4255-BAC0-FEF2FB2D5169.png"><br>这里对于数组的用法不做过多的介绍，后期补充。</p>
 </blockquote>
 </li>
 </ul>
-<h3 id="Swift的Array"><a href="#Swift的Array" class="headerlink" title="Swift的Array"></a>Swift的Array</h3><p>在Swift中，Array整合了OC的可变数组与不可变数组，但是他的实现方式有三种：<br><img src="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/0F5000AF-589A-4128-8615-2A6EAAF97D82.png"></p>
+<h3 id="Swift的Array"><a href="#Swift的Array" class="headerlink" title="Swift的Array"></a>Swift的Array</h3><p>在Swift中，Array整合了OC的可变数组与不可变数组，但是他的实现方式有三种：<br><img src="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/0F5000AF-589A-4128-8615-2A6EAAF97D82.png"></p>
 <h4 id="ContiguousArray"><a href="#ContiguousArray" class="headerlink" title="ContiguousArray"></a>ContiguousArray</h4><blockquote>
 <p>The ContiguousArray type is a specialized array that always stores its elements in a contiguous region of memory. This contrasts with Array, which can store its elements in either a contiguous region of memory or an NSArray instance if its Element type is a class or @objc protocol.<br>If your array’s Element type is a class or @objc protocol and you do not need to bridge the array to NSArray or pass the array to Objective-C APIs, using ContiguousArray may be more efficient and have more predictable performance than Array. If the array’s Element type is a struct or enumeration, Array and ContiguousArray should have similar efficiency.<br>For more information about using arrays, see Array and ArraySlice, with which ContiguousArray shares most properties and methods.<br>——来自Apple官方文档。<br> <strong>翻译</strong><br>“邻接数组”类型是一个 <strong>总将元素存储在一个相邻的内存区域</strong> 的专用的数组。这与“Array”有所不同，如果“Array”的数组元素类型是类类型(class)或者声明@objc的协议(@objc protocol)的话，可以将其元素存储在一个相邻的内存区域或“NSArray”实例中。<br>如果数组的“元素”类型是一个类或声明@objc的协议，并且不需要将数组桥接为“NSArray”或将数组传递给Objto-C API，则使用“ContiguousArray”可能比“Array”更有效且具有更好的性能。如果数组的“元素”类型是结构或枚举，则“Array”和“ContiguousArray”应该具有类似的效率。<br><strong>总结上面的有以下用法：</strong><br>    1. 数组存储 基本类型、结构体、枚举 时，Array和ContiguousArray是差不多的；<br>    2. 当存储 class、@objc protocol 时，需要考虑两种情况，如果不用桥接不用传到OC-API上的时候，那么用ContiguousArray更快点。<br>    3. 如果用到了桥接或者声明@objc 传递到OC-API，那么使用Array更快点。</p>
 </blockquote>
 <h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><p>数组（Array）是一串有序的由相同类型元素构成的集合,数组中的集合元素是有序的，可以重复出现。在Swift中数组类型是Array，是一个泛型集合。数组分成:可变数组和不可变数组，分别使用let修饰的数组是不可变数组，使用var修饰的数组是可变数组。<br>注意，swift的严格类型检查使得Array需要确定元素类型，即便你使用Any和AnyObject来使得支持不同的类型，但是出现复杂的类强制解析类型会导致crash，甚至你格式化字符串输出时产生编译报错因为Any和AnyObject不支持CVararg。</p>
 <h4 id="ArraySlice"><a href="#ArraySlice" class="headerlink" title="ArraySlice"></a>ArraySlice</h4><p>ArraySlice 既是Array的一部分又是独立的一个对象，主要用于把一个数组中间的几个数据切片到一个新的数组中。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array: <span class="type">ArraySlice</span> <span class="operator">=</span> [<span class="string">&quot;Adam&quot;</span>, <span class="string">&quot;Lisa&quot;</span>, <span class="string">&quot;Bart&quot;</span>, <span class="string">&quot;Paul&quot;</span>]</span><br><span class="line"><span class="keyword">let</span> slice <span class="operator">=</span> array[<span class="number">0</span><span class="operator">...</span><span class="number">2</span>]</span><br><span class="line"><span class="built_in">print</span>(slice)</span><br><span class="line"><span class="type">Result</span>: [<span class="string">&quot;Adam&quot;</span>, <span class="string">&quot;Lisa&quot;</span>, <span class="string">&quot;Bart&quot;</span>]</span><br></pre></td></tr></table></figure>
-<p><img src="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/6FB5C7DB-1446-47D6-A65C-B751C44B4021.png"></p>
+<p><img src="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/6FB5C7DB-1446-47D6-A65C-B751C44B4021.png"></p>
 <h3 id="用数组实现栈"><a href="#用数组实现栈" class="headerlink" title="用数组实现栈"></a>用数组实现栈</h3><p>在Swift上用数组拓展程更多的数据结构是合适并且拥有方便的操作方法。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> stack: [<span class="type">AnyObject</span>]</span><br><span class="line">    <span class="keyword">var</span> isEmpty: <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> stack.isEmpty</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> peek: <span class="type">AnyObject</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> stack.last</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">init</span>()</span> &#123;</span><br><span class="line">        stack <span class="operator">=</span> [<span class="type">AnyObject</span>]()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">push</span>(<span class="keyword">_</span> <span class="params">object</span>: <span class="type">AnyObject</span>)</span> &#123;</span><br><span class="line">        stack.append(object)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pop</span>()</span> -&gt; <span class="type">AnyObject</span>? &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="operator">!</span>isEmpty &#123;</span><br><span class="line">            <span class="keyword">return</span> stack.removeLast()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -597,7 +597,7 @@
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="算法基础（二）数据结构">
+                <a href="/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="算法基础（二）数据结构">
                     <div class="nextTitle">算法基础（二）数据结构</div>
                 </a>
             
@@ -605,7 +605,7 @@
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/" title="回顾C、C++、Java">
+                <a href="/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/" title="回顾C、C++、Java">
                     <div class="prevTitle">回顾C、C++、Java</div>
                 </a>
             
@@ -682,7 +682,7 @@
             
                 <span class="iconfont-archer wechat" title=wechat>
                     
-                    <img class="profile-qr" src="/jonathanlu98.github.io/assets/example_qr.png" />
+                    <img class="profile-qr" src="/assets/example_qr.png" />
                 </span>
             
         
@@ -914,12 +914,6 @@
         
         
         
-        
-        
-        
-        
-        
-        
     
     
     
@@ -943,61 +937,61 @@
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%94%EF%BC%89%E6%A0%91%E7%BB%BC%E5%90%88/">算法基础（五）树综合</a>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%94%EF%BC%89%E6%A0%91%E7%BB%BC%E5%90%88/">算法基础（五）树综合</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%9B%9B%EF%BC%89%E9%93%BE%E8%A1%A8%E7%BB%BC%E5%90%88/">算法基础（四）链表综合</a>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%9B%9B%EF%BC%89%E9%93%BE%E8%A1%A8%E7%BB%BC%E5%90%88/">算法基础（四）链表综合</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/">算法基础（三）排序和搜索</a>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/">算法基础（三）排序和搜索</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">算法基础（六） 题目综合</a>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">算法基础（六） 题目综合</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">07/02</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/">实习面试整理</a>
+            <a class="archive-post-title" href="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/">实习面试整理</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/10</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法基础（二）数据结构</a>
+            <a class="archive-post-title" href="/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法基础（二）数据结构</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">05/03</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/">算法基础（一）基本的数据结构（数组、集合、字典、字符串）</a>
+            <a class="archive-post-title" href="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/">算法基础（一）基本的数据结构（数组、集合、字典、字符串）</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/10</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">回顾C、C++、Java</a>
+            <a class="archive-post-title" href="/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">回顾C、C++、Java</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/06</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/03/06/OC-%E5%A3%B0%E6%98%8E%E5%B0%8F%E8%AE%B0/">OC-声明小记（一）</a>
+            <a class="archive-post-title" href="/2020/03/06/OC-%E5%A3%B0%E6%98%8E%E5%B0%8F%E8%AE%B0/">OC-声明小记（一）</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/05</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/03/05/OC-%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%AD%A6%E9%97%AE/">OC-枚举的学问</a>
+            <a class="archive-post-title" href="/2020/03/05/OC-%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%AD%A6%E9%97%AE/">OC-枚举的学问</a>
         </li>
     
         
@@ -1012,25 +1006,25 @@
         
         <li class="archive-post-item">
             <span class="archive-post-date">11/12</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/11/12/iSCUEC%20Demo%E7%9A%84%E5%8F%91%E5%B8%83/">项目分享 ：iSCUEC Demo 发布了</a>
+            <a class="archive-post-title" href="/2019/11/12/iSCUEC%20Demo%E7%9A%84%E5%8F%91%E5%B8%83/">项目分享 ：iSCUEC Demo 发布了</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/10/23/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/">博客网站的迁移</a>
+            <a class="archive-post-title" href="/2019/10/23/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/">博客网站的迁移</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/13</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/">iOS小记 ：第一次开发完成经历</a>
+            <a class="archive-post-title" href="/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/">iOS小记 ：第一次开发完成经历</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">01/19</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/01/19/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Reveal/">如何使用Reveal</a>
+            <a class="archive-post-title" href="/2019/01/19/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Reveal/">如何使用Reveal</a>
         </li>
     
     </div>
@@ -1044,14 +1038,14 @@
                 iOS小记
             </span>
         
-            <span class="sidebar-tag-name" data-tags="项目分享">
-                <span class="iconfont-archer">&#xe606;</span>
-                项目分享
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="分享">
                 <span class="iconfont-archer">&#xe606;</span>
                 分享
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="项目分享">
+                <span class="iconfont-archer">&#xe606;</span>
+                项目分享
             </span>
         
             <span class="sidebar-tag-name" data-tags="实习准备">
@@ -1081,7 +1075,7 @@
         <!-- site-meta -->
         <script>
     var siteMeta = {
-        root: "/jonathanlu98.github.io/",
+        root: "/",
         author: "Jonathan Lu"
     }
 </script>
@@ -1091,9 +1085,9 @@
 
 
         <!-- main func -->
-        <script src="/jonathanlu98.github.io/scripts/main.js?v=20210823"></script>
+        <script src="/scripts/main.js?v=20210823"></script>
         <!-- dark mode -->
-        <script src="/jonathanlu98.github.io/scripts/dark.js?v=20210823"></script>
+        <script src="/scripts/dark.js?v=20210823"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
@@ -1106,7 +1100,7 @@
         
         <!-- async load share.js -->
         
-            <script src="/jonathanlu98.github.io/scripts/share.js?v=20210823" async></script>
+            <script src="/scripts/share.js?v=20210823" async></script>
         
         <!-- mermaid -->
         

@@ -26,18 +26,18 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="算法基础（二）数据结构链表链表是由数据项组成的一个序列，其中每个数据项被称为节点。链表有两种主要类型：  单链表 每一个节点只包含一个指向链表中下一个节点的指针（引用）。 双链表 每个节点包含两个指针（引用），一个指向前一个节点，一个指向后一个节点。  通常我们用head和tail指针来记录链表的头和尾。 代码实现单链表123456789101112131415161718192021222324">
 <meta property="og:locale">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-bfbc522a993ae839.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-fe971bc94e6950d7.png">
-<meta property="og:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-4dc8bbba9404586d.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-bfbc522a993ae839.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-fe971bc94e6950d7.png">
+<meta property="og:image" content="https://jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-4dc8bbba9404586d.png">
 <meta property="article:published_time" content="2020-06-10T12:55:23.000Z">
 <meta property="article:modified_time" content="2021-10-05T15:34:35.798Z">
 <meta property="article:author" content="Jonathan Lu">
 <meta property="article:tag" content="实习准备">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jonathanlu98.github.io/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-bfbc522a993ae839.png">
+<meta name="twitter:image" content="https://jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-bfbc522a993ae839.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="icon" href="/jonathanlu98.github.io/assets/favicon.ico">
+    <link rel="icon" href="/assets/favicon.ico">
     
     <title>算法基础（二）数据结构 · Jonathan&#39;s Studio</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
@@ -152,7 +152,7 @@
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
-        src: url("/jonathanlu98.github.io/font/Oswald-Regular.ttf");
+        src: url("/font/Oswald-Regular.ttf");
     }
 
     body {
@@ -200,15 +200,15 @@
     }
 </style>
 
-    <link rel="preload" href="/jonathanlu98.github.io/css/style.css?v=20210823" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/jonathanlu98.github.io/css/dark.css?v=20210823" as="style">
-    <link rel="stylesheet" href="/jonathanlu98.github.io/css/dark.css" media="(prefers-color-scheme: dark)">
-    <link rel="stylesheet" href="/jonathanlu98.github.io/css/mobile.css?v=20210823" media="(max-width: 960px)">
+    <link rel="preload" href="/css/style.css?v=20210823" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20210823" as="style">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="/css/mobile.css?v=20210823" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/jonathanlu98.github.io/scripts/main.js?v=20210823" as="script">
-    <link rel="preload" href="/jonathanlu98.github.io/scripts/dark.js?v=20210823" as="script">
-    <link rel="preload" href="/jonathanlu98.github.io/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/scripts/main.js?v=20210823" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20210823" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -222,7 +222,7 @@
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/jonathanlu98.github.io/lib/jquery.min.js" />')
+            document.write('<script src="/lib/jquery.min.js" />')
         }
     </script>
     
@@ -252,7 +252,7 @@
         </span>
         <!-- back to home page text -->
         <span class="home-link header-element">
-            <a href=/jonathanlu98.github.io/>Jonathan's Studio</a>
+            <a href=/>Jonathan's Studio</a>
         </span>
     </div>
     <!-- toggle banner for post layout -->
@@ -261,7 +261,7 @@
             <div class="banner">
         
             <div class="blog-title header-element">
-                <a href="/jonathanlu98.github.io/">Jonathan&#39;s Studio</a>
+                <a href="/">Jonathan&#39;s Studio</a>
             </div>
             <div class="post-title header-element">
                 <a href="#" class="post-name">算法基础（二）数据结构</a>
@@ -487,23 +487,23 @@
     [
       'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
-      "/jonathanlu98.github.io/lib/webfontloader.min.js",
+      "/lib/webfontloader.min.js",
     ],
     asyncCb,
     asyncErr
   )
 </script>
 
-            <img class="loading" src="/jonathanlu98.github.io/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
         <h1 id="算法基础（二）数据结构"><a href="#算法基础（二）数据结构" class="headerlink" title="算法基础（二）数据结构"></a>算法基础（二）数据结构</h1><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p><strong>链表</strong>是由数据项组成的一个序列，其中每个数据项被称为<strong>节点</strong>。<br>链表有两种主要类型：</p>
 <ul>
-<li><strong>单链表</strong> 每一个节点只包含一个指向链表中下一个节点的指针（引用）。<br><img src="/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-bfbc522a993ae839.png"></li>
-<li><strong>双链表</strong> 每个节点包含两个指针（引用），一个指向前一个节点，一个指向后一个节点。<br><img src="/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-fe971bc94e6950d7.png"></li>
+<li><strong>单链表</strong> 每一个节点只包含一个指向链表中下一个节点的指针（引用）。<br><img src="/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-bfbc522a993ae839.png"></li>
+<li><strong>双链表</strong> 每个节点包含两个指针（引用），一个指向前一个节点，一个指向后一个节点。<br><img src="/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-fe971bc94e6950d7.png"></li>
 </ul>
-<p>通常我们用<strong>head</strong>和<strong>tail</strong>指针来记录链表的头和尾。<br><img src="/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-4dc8bbba9404586d.png"></p>
+<p>通常我们用<strong>head</strong>和<strong>tail</strong>指针来记录链表的头和尾。<br><img src="/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1453246-4dc8bbba9404586d.png"></p>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><h4 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> next: <span class="type">ListNode</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">init</span>(<span class="keyword">_</span> <span class="params">value</span>: <span class="type">Int</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.value <span class="operator">=</span> value</span><br><span class="line">        <span class="keyword">self</span>.next <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">List</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> head: <span class="type">ListNode</span>?</span><br><span class="line">    <span class="keyword">var</span> tail: <span class="type">ListNode</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//尾插法</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">appendToTail</span>(<span class="keyword">_</span> <span class="params">value</span>: <span class="type">Int</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> tail <span class="operator">==</span> <span class="literal">nil</span> &#123;</span><br><span class="line">            tail <span class="operator">=</span> <span class="type">ListNode</span>(value)</span><br><span class="line">            head <span class="operator">=</span> tail</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            tail<span class="operator">?</span>.next <span class="operator">=</span> <span class="type">ListNode</span>(value)</span><br><span class="line">            tail <span class="operator">=</span> tail<span class="operator">?</span>.next</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//头插法</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">appendToHead</span>(<span class="keyword">_</span> <span class="params">value</span>: <span class="type">Int</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> head <span class="operator">==</span> <span class="literal">nil</span> &#123;</span><br><span class="line">            head <span class="operator">=</span> <span class="type">ListNode</span>(value)</span><br><span class="line">            tail <span class="operator">=</span> head</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> temp <span class="operator">=</span> <span class="type">ListNode</span>(value)</span><br><span class="line">            temp.next <span class="operator">=</span> head</span><br><span class="line">            head <span class="operator">=</span> temp</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubleNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value : <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> previous :<span class="type">DoubleNode</span>?</span><br><span class="line">    <span class="keyword">var</span> next:<span class="type">DoubleNode</span>?</span><br><span class="line">    <span class="function"><span class="keyword">init</span>(<span class="keyword">_</span> <span class="params">value</span> :<span class="type">Int</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.value <span class="operator">=</span> value</span><br><span class="line">        <span class="keyword">self</span>.previous <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line">        <span class="keyword">self</span>.next <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubleNodeList</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> head:<span class="type">DoubleNode</span>?</span><br><span class="line">    <span class="keyword">var</span> tail:<span class="type">DoubleNode</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">appendToTail</span>(<span class="keyword">_</span> <span class="params">val</span>:<span class="type">Int</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> tail <span class="operator">==</span> <span class="literal">nil</span> &#123;</span><br><span class="line">            tail <span class="operator">=</span> <span class="type">DoubleNode</span>(val)</span><br><span class="line">            head <span class="operator">=</span> tail</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> temp <span class="operator">=</span> <span class="type">DoubleNode</span>(val)</span><br><span class="line">            tail<span class="operator">?</span>.next <span class="operator">=</span> temp</span><br><span class="line">            temp.previous <span class="operator">=</span> tail</span><br><span class="line">            tail <span class="operator">=</span> temp</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">appendToHead</span>(<span class="keyword">_</span> <span class="params">val</span>:<span class="type">Int</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> head <span class="operator">==</span> <span class="literal">nil</span> &#123;</span><br><span class="line">            head <span class="operator">=</span> <span class="type">DoubleNode</span>(val)</span><br><span class="line">            tail <span class="operator">=</span> head</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> temp <span class="operator">=</span> <span class="type">DoubleNode</span>(val)</span><br><span class="line">            temp.next <span class="operator">=</span> head</span><br><span class="line">            head<span class="operator">?</span>.previous <span class="operator">=</span> temp</span><br><span class="line">            head <span class="operator">=</span> temp</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -580,7 +580,7 @@
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/jonathanlu98.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/" title="实习面试整理">
+                <a href="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/" title="实习面试整理">
                     <div class="nextTitle">实习面试整理</div>
                 </a>
             
@@ -588,7 +588,7 @@
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/" title="算法基础（一）基本的数据结构（数组、集合、字典、字符串）">
+                <a href="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/" title="算法基础（一）基本的数据结构（数组、集合、字典、字符串）">
                     <div class="prevTitle">算法基础（一）基本的数据结构（数组、集合、字典、字符串）</div>
                 </a>
             
@@ -665,7 +665,7 @@
             
                 <span class="iconfont-archer wechat" title=wechat>
                     
-                    <img class="profile-qr" src="/jonathanlu98.github.io/assets/example_qr.png" />
+                    <img class="profile-qr" src="/assets/example_qr.png" />
                 </span>
             
         
@@ -897,12 +897,6 @@
         
         
         
-        
-        
-        
-        
-        
-        
     
     
     
@@ -926,61 +920,61 @@
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%94%EF%BC%89%E6%A0%91%E7%BB%BC%E5%90%88/">算法基础（五）树综合</a>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%94%EF%BC%89%E6%A0%91%E7%BB%BC%E5%90%88/">算法基础（五）树综合</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%9B%9B%EF%BC%89%E9%93%BE%E8%A1%A8%E7%BB%BC%E5%90%88/">算法基础（四）链表综合</a>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%9B%9B%EF%BC%89%E9%93%BE%E8%A1%A8%E7%BB%BC%E5%90%88/">算法基础（四）链表综合</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/">算法基础（三）排序和搜索</a>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/">算法基础（三）排序和搜索</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/29</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">算法基础（六） 题目综合</a>
+            <a class="archive-post-title" href="/2020/08/29/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E5%85%AD%EF%BC%89%20%E9%A2%98%E7%9B%AE%E7%BB%BC%E5%90%88/">算法基础（六） 题目综合</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">07/02</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/">实习面试整理</a>
+            <a class="archive-post-title" href="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/">实习面试整理</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/10</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法基础（二）数据结构</a>
+            <a class="archive-post-title" href="/2020/06/10/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">算法基础（二）数据结构</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">05/03</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/">算法基础（一）基本的数据结构（数组、集合、字典、字符串）</a>
+            <a class="archive-post-title" href="/2020/05/03/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%9B%86%E5%90%88%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89/">算法基础（一）基本的数据结构（数组、集合、字典、字符串）</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/10</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">回顾C、C++、Java</a>
+            <a class="archive-post-title" href="/2020/04/10/%E5%9B%9E%E9%A1%BEC%E3%80%81C++%E3%80%81Java/">回顾C、C++、Java</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/06</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/03/06/OC-%E5%A3%B0%E6%98%8E%E5%B0%8F%E8%AE%B0/">OC-声明小记（一）</a>
+            <a class="archive-post-title" href="/2020/03/06/OC-%E5%A3%B0%E6%98%8E%E5%B0%8F%E8%AE%B0/">OC-声明小记（一）</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/05</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2020/03/05/OC-%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%AD%A6%E9%97%AE/">OC-枚举的学问</a>
+            <a class="archive-post-title" href="/2020/03/05/OC-%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%AD%A6%E9%97%AE/">OC-枚举的学问</a>
         </li>
     
         
@@ -995,25 +989,25 @@
         
         <li class="archive-post-item">
             <span class="archive-post-date">11/12</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/11/12/iSCUEC%20Demo%E7%9A%84%E5%8F%91%E5%B8%83/">项目分享 ：iSCUEC Demo 发布了</a>
+            <a class="archive-post-title" href="/2019/11/12/iSCUEC%20Demo%E7%9A%84%E5%8F%91%E5%B8%83/">项目分享 ：iSCUEC Demo 发布了</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">10/23</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/10/23/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/">博客网站的迁移</a>
+            <a class="archive-post-title" href="/2019/10/23/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/">博客网站的迁移</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/13</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/">iOS小记 ：第一次开发完成经历</a>
+            <a class="archive-post-title" href="/2019/08/13/iOS%E5%B0%8F%E8%AE%B0%20%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E7%BB%8F%E5%8E%86/">iOS小记 ：第一次开发完成经历</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">01/19</span>
-            <a class="archive-post-title" href="/jonathanlu98.github.io/2019/01/19/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Reveal/">如何使用Reveal</a>
+            <a class="archive-post-title" href="/2019/01/19/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Reveal/">如何使用Reveal</a>
         </li>
     
     </div>
@@ -1027,14 +1021,14 @@
                 iOS小记
             </span>
         
-            <span class="sidebar-tag-name" data-tags="项目分享">
-                <span class="iconfont-archer">&#xe606;</span>
-                项目分享
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="分享">
                 <span class="iconfont-archer">&#xe606;</span>
                 分享
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="项目分享">
+                <span class="iconfont-archer">&#xe606;</span>
+                项目分享
             </span>
         
             <span class="sidebar-tag-name" data-tags="实习准备">
@@ -1064,7 +1058,7 @@
         <!-- site-meta -->
         <script>
     var siteMeta = {
-        root: "/jonathanlu98.github.io/",
+        root: "/",
         author: "Jonathan Lu"
     }
 </script>
@@ -1074,9 +1068,9 @@
 
 
         <!-- main func -->
-        <script src="/jonathanlu98.github.io/scripts/main.js?v=20210823"></script>
+        <script src="/scripts/main.js?v=20210823"></script>
         <!-- dark mode -->
-        <script src="/jonathanlu98.github.io/scripts/dark.js?v=20210823"></script>
+        <script src="/scripts/dark.js?v=20210823"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
@@ -1089,7 +1083,7 @@
         
         <!-- async load share.js -->
         
-            <script src="/jonathanlu98.github.io/scripts/share.js?v=20210823" async></script>
+            <script src="/scripts/share.js?v=20210823" async></script>
         
         <!-- mermaid -->
         
