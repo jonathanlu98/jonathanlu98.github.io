@@ -26,18 +26,18 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="实习面试整理网络部分https与http的介绍超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一个客户端（用户）和服务端（网站）之间请求和应答的标准，通常使用 TCP协议 。通过使用 网页浏览器 、 网络爬虫 或者其它的工具，客户端发起一个HTTP请求到服务器上指定端口（默认 端口 为80）。我们称这个客户端为用户代理程序（user agent）。应">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/bVp65j%203.png">
-<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/20180717202520531%203.png">
-<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/20180717204202563%203.png">
-<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/970779-efa594531d450226%203.png">
-<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/IMG_0366%203.png">
-<meta property="og:image" content="http://example.com/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/2419009-b0ca558a660bac87%203.png">
+<meta property="og:image" content="http://example.com/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/bVp65j%203.png">
+<meta property="og:image" content="http://example.com/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/20180717202520531%203.png">
+<meta property="og:image" content="http://example.com/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/20180717204202563%203.png">
+<meta property="og:image" content="http://example.com/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/970779-efa594531d450226%203.png">
+<meta property="og:image" content="http://example.com/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/IMG_0366%203.png">
+<meta property="og:image" content="http://example.com/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/2419009-b0ca558a660bac87%203.png">
 <meta property="article:published_time" content="2020-07-02T07:37:40.000Z">
 <meta property="article:modified_time" content="2021-10-05T15:34:35.773Z">
 <meta property="article:author" content="Jonathan Lu">
 <meta property="article:tag" content="实习准备">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/bVp65j%203.png">
+<meta name="twitter:image" content="http://example.com/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/bVp65j%203.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
@@ -509,7 +509,7 @@
 <li><p>TCP连接<br>HTTP协议是使用TCP作为其传输层协议的，当TCP出现瓶颈时，HTTP也会受到影响。<br>HTTP报文是包裹在TCP报文中发送的，服务器端收到TCP报文时会解包提取出HTTP报文。但是这个过程中存在一定的风险，HTTP报文是明文，如果中间被截取的话会存在一些信息泄露的风险。那么在进入TCP报文之前对HTTP做一次加密就可以解决这个问题了。HTTPS协议的本质就是HTTP + SSL(or TLS)。在HTTP报文进入TCP报文之前，先使用SSL对HTTP报文进行加密。从网络的层级结构看它位于HTTP协议与TCP协议之间。</p>
 </li>
 </ol>
-<p><strong>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TLS/SSL握手)，在握手过程中将确立双方加密传输数据的密码信息。</strong>TLS/SSL使用了非对称加密，对称加密以及hash等。<br>HTTPS相比于HTTP，虽然提供了安全保证，但是势必会带来一些时间上的损耗，如握手和加密等过程，是否使用HTTPS需要根据具体情况在安全和性能方面做出权衡。<br><img src="/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/bVp65j%203.png"></p>
+<p><strong>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TLS/SSL握手)，在握手过程中将确立双方加密传输数据的密码信息。</strong>TLS/SSL使用了非对称加密，对称加密以及hash等。<br>HTTPS相比于HTTP，虽然提供了安全保证，但是势必会带来一些时间上的损耗，如握手和加密等过程，是否使用HTTPS需要根据具体情况在安全和性能方面做出权衡。<br><img src="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/bVp65j%203.png"></p>
 <ol start="3">
 <li><p>发送HTTP请求<br>其实这部分又可以称为前端工程师眼中的HTTP，它主要发生在客户端。发送HTTP请求的过程就是构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080, HTTPS协议443)。HTTP请求报文是由三部分组成: <strong>请求行</strong>, <strong>请求报头</strong>和<strong>请求正文</strong>。</p>
 </li>
@@ -536,13 +536,13 @@
 <h4 id="连接的三次握手"><a href="#连接的三次握手" class="headerlink" title="连接的三次握手"></a>连接的三次握手</h4><ol>
 <li>建立连接时，客户端发送syn包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）。</li>
 <li>服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；</li>
-<li>客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。<br><img src="/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/20180717202520531%203.png"></li>
+<li>客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。<br><img src="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/20180717202520531%203.png"></li>
 </ol>
 <h4 id="关闭的四次挥手"><a href="#关闭的四次挥手" class="headerlink" title="关闭的四次挥手"></a>关闭的四次挥手</h4><ol>
 <li>主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。</li>
 <li>被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。</li>
 <li>被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。</li>
-<li>主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。<br><img src="/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/20180717204202563%203.png"></li>
+<li>主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。<br><img src="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/20180717204202563%203.png"></li>
 </ol>
 <blockquote>
 <p>【问题1】为什么连接的时候是三次握手，关闭的时候却是四次挥手？<br>因为当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，”你发的FIN报文我收到了”。只有等到我Server端所有的报文都发送完了，我才能发送FIN报文，因此不能一起发送。故需要四步握手。<br>【问题2】为什么不能用两次握手进行连接？<br>答：3次握手完成两个重要的功能，既要双方做好发送数据的准备工作(双方都知道彼此已准备好)，也要允许双方就初始序列号进行协商，这个序列号在握手过程中被发送和确认。<br>【问题3】如果已经建立了连接，但是客户端突然出现故障了怎么办？<br>TCP还设有一个保活计时器，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75秒钟发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。  </p>
@@ -596,7 +596,7 @@
 </li>
 </ol>
 <p><strong>栈是由高地址向低地址增长。</strong><br><strong>堆是由低地址向高地址增长。</strong></p>
-<p>在iOS，所有进程（执行的程序）都必须占用一定数量的内存，它或是用来存放从磁盘载入的程序代码，或是存放取自用户输入的数据等等。不过进程对这些内存的管理方式因内存用途不一而不尽相同，有些内存是事先静态分配和统一回收的，而有些却是按需要动态分配和回收的。<br><img src="/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/970779-efa594531d450226%203.png"></p>
+<p>在iOS，所有进程（执行的程序）都必须占用一定数量的内存，它或是用来存放从磁盘载入的程序代码，或是存放取自用户输入的数据等等。不过进程对这些内存的管理方式因内存用途不一而不尽相同，有些内存是事先静态分配和统一回收的，而有些却是按需要动态分配和回收的。<br><img src="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/970779-efa594531d450226%203.png"></p>
 <p><strong>我们主要来看堆区和栈区</strong></p>
 <ol>
 <li><strong>堆（heap）区：</strong>堆是由<strong>程序员</strong>分配和释放，用于存放进程运行中被动态分配的内存段，<strong>它大小并不固定，可动态扩张或缩减</strong>。当进程调用alloc等函数分配内存时，新分配的内存就被动态添加到堆上（堆被扩张）；当利用realse释放内存时，被释放的内存从堆中被剔除（堆被缩减），因为我们现在iOS基本都使用ARC来管理对象，所以不用我们程序员来管理，但是我们要知道这个对象存储的位置。</li>
@@ -679,7 +679,7 @@
 <li>就绪状态：线程对象创建之后，其他线程调用了该对象的start方法，该状态的线程位于可运行线程池中，变得可运行，等待获取CPU的使用权；</li>
 <li>运行状态：就绪状态的线程获取了CPU，执行程序代码；</li>
 <li>阻塞状态：因某种原因放弃CPU使用权，暂停运行，知道线程进入就绪状态，才有机会转到运行状态；</li>
-<li>死亡状态：线程执行完了或者因异常退出了run方法，线程生命周期结束；<br><img src="/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/IMG_0366%203.png"></li>
+<li>死亡状态：线程执行完了或者因异常退出了run方法，线程生命周期结束；<br><img src="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/IMG_0366%203.png"></li>
 </ul>
 <h4 id="进程和线程比较："><a href="#进程和线程比较：" class="headerlink" title="进程和线程比较："></a>进程和线程比较：</h4><ul>
 <li><strong>线程是CPU调度（执行任务）的最小单位，是程序执行的最小单元;</strong></li>
@@ -716,7 +716,7 @@
 <li>循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。</li>
 </ul>
 <p>这四个条件是死锁的<strong>必要条件</strong>，只要系统发生死锁，这些条件必然成立，而只要上述条件之一不满足，就不会发生死锁。</p>
-<p><img src="/jonathanlu.github.io/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/2419009-b0ca558a660bac87%203.png"></p>
+<p><img src="/2020/07/02/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/2419009-b0ca558a660bac87%203.png"></p>
 <h4 id="避免死锁"><a href="#避免死锁" class="headerlink" title="避免死锁"></a>避免死锁</h4><p>让系统处于安全状态<br>安全序列问题</p>
 <p><strong>预防死锁</strong><br>破坏请求和保持条件 ：一个进程请求资源时，他不能持有不可抢占资源。<br>破坏不可抢占条件：进程已占有的资源会被暂时释放。<br>破坏循环等待条件：对系统所有资源类型进行线性排序，并赋予不同序号然后按序请求资源。</p>
 <p><strong>总结</strong><br>预防 ——&gt; 避免 ——&gt; 检测（资源分配图） ——&gt; 解除（终止进程）</p>
@@ -1063,6 +1063,8 @@
         
         
         
+        
+        
     
     
     
@@ -1187,14 +1189,14 @@
                 iOS小记
             </span>
         
-            <span class="sidebar-tag-name" data-tags="项目分享">
-                <span class="iconfont-archer">&#xe606;</span>
-                项目分享
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="分享">
                 <span class="iconfont-archer">&#xe606;</span>
                 分享
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="项目分享">
+                <span class="iconfont-archer">&#xe606;</span>
+                项目分享
             </span>
         
             <span class="sidebar-tag-name" data-tags="实习准备">
