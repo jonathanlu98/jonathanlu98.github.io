@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Jonathan Lu">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Jonathan Lu">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="算法基础（三）排序和搜索排序123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979">
+<meta name="keywords" content="实习准备">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法基础（三）排序和搜索">
+<meta property="og:url" content="http://developer.iscuec.club/2020/08/29/算法基础（三）排序和搜索/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="算法基础（三）排序和搜索排序123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2021-10-05T15:34:35.798Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法基础（三）排序和搜索">
+<meta name="twitter:description" content="算法基础（三）排序和搜索排序123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>算法基础（三）排序和搜索 · Jonathan&#39;s Studio</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin="">
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin="">
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Jonathan&#39;s Studio</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">算法基础（三）排序和搜索</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Jonathan's Studio</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/random)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            算法基础（三）排序和搜索
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "实习准备">实习准备</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">4.8k</span>阅读时长: <span class="post-count reading-time">20 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/08/29</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="算法基础（三）排序和搜索"><a href="#算法基础（三）排序和搜索" class="headerlink" title="算法基础（三）排序和搜索"></a>算法基础（三）排序和搜索</h1><h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>&lt;<span class="title">T</span>: <span class="title">Comparable</span>&gt; </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        直接插入排序（插入排序的一种）  时间复杂度O(n~n2) 空间复杂度O(1)  稳定</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">insertSort</span><span class="params">(<span class="number">_</span> array: [T])</span></span> -&gt; [<span class="type">T</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> array = array</span><br><span class="line">        <span class="keyword">guard</span> !array.isEmpty &amp;&amp; array.<span class="built_in">count</span> &gt; <span class="number">1</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> array</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>...array.<span class="built_in">count</span>-<span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> (<span class="number">0</span>..&lt;i).reversed() &#123;</span><br><span class="line">                <span class="keyword">if</span> array[j] &gt; array[j+<span class="number">1</span>] &#123;</span><br><span class="line">                    <span class="keyword">let</span> temp = array[j+<span class="number">1</span>]</span><br><span class="line">                    array[j+<span class="number">1</span>] = array[j]</span><br><span class="line">                    array[j] = temp</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        希尔排序（插入排序的一种）  时间复杂度(n^(1.3~2)) 空间复杂度O(1)  不稳定</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">shellSort</span><span class="params">(<span class="number">_</span> array: [T])</span></span> -&gt; [<span class="type">T</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> array = array</span><br><span class="line">        <span class="comment">//获取增量</span></span><br><span class="line">        <span class="keyword">var</span> gap = array.<span class="built_in">count</span>/<span class="number">2</span></span><br><span class="line">        <span class="keyword">while</span> gap &gt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;array.<span class="built_in">count</span> &#123;</span><br><span class="line">                <span class="keyword">var</span> j = i + gap</span><br><span class="line">                <span class="keyword">while</span> j &gt;= gap &amp;&amp; j &lt; array.<span class="built_in">count</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> array[j-gap] &gt; array[j] &#123;</span><br><span class="line">                        array.swapAt(j-gap, j)</span><br><span class="line">                        j = j - gap</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//增量减半</span></span><br><span class="line">            gap /= <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        简单选择排序  时间复杂度O(n2) 空间复杂度O(1)  不稳定</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">selectSort</span><span class="params">(<span class="number">_</span> array: [T])</span></span> -&gt; [<span class="type">T</span>] &#123;</span><br><span class="line">        <span class="keyword">guard</span> array.<span class="built_in">count</span> &gt; <span class="number">1</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> array</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> array = array</span><br><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">0</span>..&lt;array.<span class="built_in">count</span>-<span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> lowest = index</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> index+<span class="number">1</span>..&lt;array.<span class="built_in">count</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> array[i] &lt; array[lowest] &#123;</span><br><span class="line">                    lowest = i</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> index != lowest &#123;</span><br><span class="line">                array.swapAt(index, lowest)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        堆排序（选择排序的一种） 时间复杂度为O(nlog2n) 空间复杂度O(1) 不稳定</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">heapSort</span><span class="params">(<span class="number">_</span> array: [T])</span></span> -&gt; [<span class="type">T</span>] &#123;</span><br><span class="line">        <span class="keyword">guard</span> array.<span class="built_in">count</span> &gt; <span class="number">1</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> array</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> array = array</span><br><span class="line">        <span class="comment">//1.构建大顶堆</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> (<span class="number">0</span>...(array.<span class="built_in">count</span>/<span class="number">2</span>-<span class="number">1</span>)).reversed()&#123;</span><br><span class="line">            <span class="comment">//从第一个非叶子结点从下至上，从右至左调整结构</span></span><br><span class="line">            <span class="keyword">self</span>.adjustHeap(array: &amp;array, i: i, length: array.<span class="built_in">count</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//2.调整堆结构+交换堆顶元素与末尾元素</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span>  (<span class="number">1</span>...(array.<span class="built_in">count</span>-<span class="number">1</span>)).reversed()&#123;</span><br><span class="line">            array.swapAt(<span class="number">0</span>, j)<span class="comment">//将堆顶元素与末尾元素进行交换</span></span><br><span class="line">            <span class="keyword">self</span>.adjustHeap(array: &amp;array, i: <span class="number">0</span>, length: j)<span class="comment">//重新对堆进行调整</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 调整大顶堆（仅是调整过程，建立在大顶堆已构建的基础上）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">adjustHeap</span><span class="params">(array: <span class="keyword">inout</span> [T], i: Int, length: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">var</span> i = i</span><br><span class="line">        <span class="keyword">let</span> temp = array[i]<span class="comment">//先取出当前元素i</span></span><br><span class="line">        <span class="keyword">var</span> k = <span class="number">2</span>*i+<span class="number">1</span><span class="comment">//左孩子下标</span></span><br><span class="line">        <span class="keyword">while</span> k&lt;length &#123;<span class="comment">//从i结点的左子结点开始，也就是2i+1处开始</span></span><br><span class="line">            <span class="keyword">if</span> k+<span class="number">1</span>&lt;length &amp;&amp; array[k]&lt;array[k+<span class="number">1</span>] &#123;<span class="comment">//如果左子结点小于右子结点，k指向右子结点</span></span><br><span class="line">                k += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> array[k] &gt; temp &#123;<span class="comment">//如果子节点大于父节点，将子节点值赋给父节点（不用进行交换）</span></span><br><span class="line">                array[i] = array[k]</span><br><span class="line">                i = k</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">            k = k*<span class="number">2</span>+<span class="number">1</span><span class="comment">//下标转向被替换节点的左孩子下标</span></span><br><span class="line">        &#125;</span><br><span class="line">        array[i] = temp<span class="comment">//将temp值放到最终的位置</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        冒泡排序（交换排序的一种）时间复杂度O(n~n2) 空间复杂度O(1) 稳定</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">bubbleSort</span><span class="params">(<span class="number">_</span> array: [T])</span></span> -&gt; [<span class="type">T</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> array = array</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> (<span class="number">1</span>...array.<span class="built_in">count</span>-<span class="number">1</span>).reversed() &#123;</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="number">1</span>...i &#123;</span><br><span class="line">                <span class="keyword">if</span> array[j-<span class="number">1</span>] &gt; array[j] &#123;</span><br><span class="line">                    array.swapAt(j-<span class="number">1</span>, j)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        快速排序（选择排序的一种）时间复杂度O(nlog2n~n2)  时间复杂度O(nlog2n)  不稳定</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">quickSort</span><span class="params">(<span class="number">_</span> array: [T])</span></span> -&gt; [<span class="type">T</span>] &#123;</span><br><span class="line">        <span class="keyword">var</span> array = array</span><br><span class="line">        helper_quickSort(&amp;array, low: <span class="number">1</span>, high: array.<span class="built_in">count</span>)</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        递归法将数组分区</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">helper_quickSort</span><span class="params">(<span class="number">_</span> array: <span class="keyword">inout</span> [T], low: Int, high: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> low&lt;high &#123;</span><br><span class="line">            <span class="keyword">let</span> pivotloc = <span class="built_in">partition</span>(&amp;array, low: low, high: high)</span><br><span class="line">            helper_quickSort(&amp;array, low: low, high: pivotloc-<span class="number">1</span>)<span class="comment">//左</span></span><br><span class="line">            helper_quickSort(&amp;array, low: pivotloc+<span class="number">1</span>, high: high)<span class="comment">//右</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        对子数组进行排序</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(<span class="number">_</span> array: <span class="keyword">inout</span> [T], low: Int, high: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> hight = high</span><br><span class="line">        <span class="keyword">var</span> low = low</span><br><span class="line">        <span class="keyword">let</span> pivotkey = array[low-<span class="number">1</span>]<span class="comment">//子数组第一个为枢轴</span></span><br><span class="line">        <span class="keyword">while</span> low&lt;hight &#123;</span><br><span class="line">            <span class="keyword">while</span> (low&lt;hight &amp;&amp; array[hight-<span class="number">1</span>]&gt;=pivotkey) &#123;hight = hight-<span class="number">1</span>&#125;<span class="comment">//高位向前扫描</span></span><br><span class="line">            <span class="keyword">if</span> low&lt;hight &#123;array[low-<span class="number">1</span>] = array[hight-<span class="number">1</span>]&#125;<span class="comment">//小的挪到地位</span></span><br><span class="line">            <span class="keyword">while</span> (low&lt;hight &amp;&amp; array[low-<span class="number">1</span>]&lt;=pivotkey) &#123;low = low+<span class="number">1</span>&#125;<span class="comment">//地位向前扫描</span></span><br><span class="line">            <span class="keyword">if</span> low&lt;hight &#123;array[hight-<span class="number">1</span>] = array[low-<span class="number">1</span>]&#125;<span class="comment">//大的挪到高位</span></span><br><span class="line">        &#125;</span><br><span class="line">        array[low-<span class="number">1</span>] = pivotkey<span class="comment">//还原枢轴</span></span><br><span class="line">        <span class="keyword">return</span> low</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        归并排序  时间复杂度O(nlog2n) 空间复杂度O(1) 稳定</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">mergeSort</span><span class="params">(<span class="number">_</span> array: [T])</span></span> -&gt; [<span class="type">T</span>] &#123;</span><br><span class="line">        <span class="keyword">guard</span> !array.isEmpty <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> array</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> helperArray: [<span class="type">T</span>] = <span class="type">Array</span>.<span class="keyword">init</span>(repeating: array.first!, <span class="built_in">count</span>: array.<span class="built_in">count</span>)</span><br><span class="line">        <span class="keyword">var</span> array = array</span><br><span class="line">        helper_mergeSort(&amp;array, helperArray: &amp;helperArray, low: <span class="number">0</span>, high: array.<span class="built_in">count</span> - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        递归拆分然后合并</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">helper_mergeSort</span><span class="params">(<span class="number">_</span> array: <span class="keyword">inout</span> [T], helperArray: <span class="keyword">inout</span> [T], low: Int, high: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> low&lt;high <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> middle = (high-low)/<span class="number">2</span>+low</span><br><span class="line">        helper_mergeSort(&amp;array, helperArray: &amp;helperArray, low: low, high: middle)</span><br><span class="line">        helper_mergeSort(&amp;array, helperArray: &amp;helperArray, low: middle+<span class="number">1</span>, high: high)</span><br><span class="line">        merge(&amp;array, helperArray: &amp;helperArray, low: low, middle: middle, high: high)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        合并过程</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">merge</span><span class="params">(<span class="number">_</span> array: <span class="keyword">inout</span> [T], helperArray: <span class="keyword">inout</span> [T], low: Int, middle: Int, high: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> low...high &#123;</span><br><span class="line">            helperArray[i] = array[i]</span><br><span class="line">        &#125;<span class="comment">//复制操作</span></span><br><span class="line">        <span class="keyword">var</span> helperLeft = low,</span><br><span class="line">        helperRight = middle+<span class="number">1</span>,</span><br><span class="line">        current = low</span><br><span class="line">        <span class="keyword">while</span> helperLeft &lt;= middle &amp;&amp; helperRight &lt;= high &#123;</span><br><span class="line">            <span class="keyword">if</span> helperArray[helperLeft] &lt;= helperArray[helperRight] &#123;</span><br><span class="line">                array[current] = helperArray[helperLeft]</span><br><span class="line">                helperLeft += <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                array[current] = helperArray[helperRight]</span><br><span class="line">                helperRight += <span class="number">1</span></span><br><span class="line">            &#125;<span class="comment">//两组从头开始比较大小并赋值到原数组</span></span><br><span class="line">            current += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">guard</span> middle-helperLeft &gt;= <span class="number">0</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;<span class="comment">//将剩下的数归并到后面</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...middle-helperLeft &#123;</span><br><span class="line">            array[current+i] = helperArray[helperLeft+i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        基数排序   时间复杂度O(d(n+rd)~d(r+n))   空间复杂度O(rd+n)  d为长度，r为关键字的基数   稳定</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">radixSort</span><span class="params">(<span class="number">_</span> array: [Int])</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">        <span class="keyword">guard</span> !array.isEmpty <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> array</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> array = array</span><br><span class="line">        <span class="keyword">var</span> exp = <span class="number">1</span></span><br><span class="line">        <span class="keyword">var</span> temp = [<span class="type">Int</span>].<span class="keyword">init</span>(repeating: <span class="number">0</span>, <span class="built_in">count</span>: array.<span class="built_in">count</span>)<span class="comment">//临时数组</span></span><br><span class="line">        <span class="keyword">var</span> <span class="built_in">max</span> = array.first!</span><br><span class="line">        <span class="keyword">for</span> value <span class="keyword">in</span> array &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">max</span> &lt; value &#123;</span><br><span class="line">                <span class="built_in">max</span> = value</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="comment">//找出最大数确定最大位数</span></span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">max</span>/exp &gt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> bucket = [<span class="type">Int</span>].<span class="keyword">init</span>(repeating: <span class="number">0</span>, <span class="built_in">count</span>: <span class="number">10</span>)<span class="comment">//建立桶</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...array.<span class="built_in">count</span>-<span class="number">1</span> &#123;</span><br><span class="line">                bucket[(array[i]/exp)%<span class="number">10</span>] += <span class="number">1</span><span class="comment">//exp位的各个数的统计</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>...<span class="number">9</span> &#123;</span><br><span class="line">                bucket[i] += bucket[i-<span class="number">1</span>]</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> (<span class="number">0</span>...array.<span class="built_in">count</span>-<span class="number">1</span>).reversed() &#123;</span><br><span class="line">                bucket[(array[i]/exp)%<span class="number">10</span>] -= <span class="number">1</span></span><br><span class="line">                temp[bucket[(array[i]/exp)%<span class="number">10</span>]] = array[i]</span><br><span class="line">            &#125;<span class="comment">//获得exp位的排序</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...array.<span class="built_in">count</span>-<span class="number">1</span> &#123;</span><br><span class="line">                array[i] = temp[i]</span><br><span class="line">            &#125;<span class="comment">//temp赋值到原数组</span></span><br><span class="line">            exp = exp*<span class="number">10</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">Solution</span>&lt;<span class="type">Int</span>&gt;().insertSort([<span class="number">7</span>,<span class="number">798</span>,<span class="number">44</span>,<span class="number">154</span>,<span class="number">22</span>,<span class="number">77</span>,<span class="number">112</span>,<span class="number">47</span>,<span class="number">1</span>])</span><br><span class="line"><span class="type">Solution</span>&lt;<span class="type">Int</span>&gt;().insertSort([<span class="number">89</span>,<span class="number">4</span>])</span><br><span class="line"><span class="type">Solution</span>&lt;<span class="type">Int</span>&gt;().shellSort([<span class="number">7</span>,<span class="number">798</span>,<span class="number">44</span>,<span class="number">154</span>,<span class="number">22</span>,<span class="number">77</span>,<span class="number">112</span>,<span class="number">47</span>,<span class="number">1</span>,<span class="number">12</span>])</span><br><span class="line"><span class="type">Solution</span>&lt;<span class="type">Int</span>&gt;().selectSort([<span class="number">7</span>,<span class="number">798</span>,<span class="number">44</span>,<span class="number">154</span>,<span class="number">22</span>,<span class="number">77</span>,<span class="number">112</span>,<span class="number">47</span>,<span class="number">1</span>,<span class="number">12</span>])</span><br><span class="line"><span class="type">Solution</span>&lt;<span class="type">Int</span>&gt;().heapSort([<span class="number">7</span>,<span class="number">798</span>,<span class="number">44</span>,<span class="number">154</span>,<span class="number">22</span>,<span class="number">77</span>,<span class="number">112</span>,<span class="number">47</span>,<span class="number">1</span>,<span class="number">12</span>])</span><br><span class="line"><span class="type">Solution</span>&lt;<span class="type">Int</span>&gt;().bubbleSort([<span class="number">7</span>,<span class="number">798</span>,<span class="number">44</span>,<span class="number">154</span>,<span class="number">22</span>,<span class="number">77</span>,<span class="number">112</span>,<span class="number">47</span>,<span class="number">1</span>,<span class="number">12</span>])</span><br><span class="line"><span class="type">Solution</span>&lt;<span class="type">Int</span>&gt;().<span class="built_in">quickSort</span>([<span class="number">7</span>,<span class="number">798</span>,<span class="number">44</span>,<span class="number">154</span>,<span class="number">22</span>,<span class="number">77</span>,<span class="number">112</span>,<span class="number">47</span>,<span class="number">1</span>,<span class="number">12</span>])</span><br><span class="line"><span class="type">Solution</span>&lt;<span class="type">Int</span>&gt;().mergeSort([<span class="number">7</span>,<span class="number">798</span>,<span class="number">44</span>,<span class="number">154</span>,<span class="number">22</span>,<span class="number">77</span>,<span class="number">112</span>,<span class="number">47</span>,<span class="number">1</span>,<span class="number">12</span>])</span><br><span class="line"><span class="type">Solution</span>&lt;<span class="type">Int</span>&gt;.radixSort([<span class="number">7</span>,<span class="number">798</span>,<span class="number">44</span>,<span class="number">154</span>,<span class="number">22</span>,<span class="number">77</span>,<span class="number">112</span>,<span class="number">47</span>,<span class="number">1</span>,<span class="number">12</span>])</span><br></pre></td></tr></table></figure>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    顺序查找：顺序查找适合于存储结构为顺序存储或链接存储的线性表，时间复杂度为O(n)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    二分查找：元素必须是有序的，如果是无序的则要先进行排序操作。时间复杂度O(log2n)</span></span><br><span class="line"><span class="comment">    也称为是折半查找，属于有序查找算法。用给定值k先与中间结点的关键字比较，中间结点把线形表分成两个子表，若相等则查找成功；若不相等，再根据k与该中间结点关键字的比较结果确定下一步查找哪个子表，这样递归进行，直到查找到或查找结束发现表中没有这样的结点。</span></span><br><span class="line"><span class="comment">    注：折半查找的前提条件是需要有序表顺序存储，对于静态查找表，一次排序后不再变化，折半查找能得到不错的效率。但对于需要频繁执行插入或删除操作的数据集来说，维护有序的排序会带来不小的工作量，那就不建议使用。——《大话数据结构》</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">binarySearch</span>&lt;T: Comparable&gt;<span class="params">(<span class="number">_</span> value: T, from array: [T])</span></span> -&gt; <span class="type">Int</span>? &#123;</span><br><span class="line">    <span class="keyword">var</span> low = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> high = array.<span class="built_in">count</span>-<span class="number">1</span></span><br><span class="line">    <span class="keyword">var</span> mid = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> low &lt;= high &#123;</span><br><span class="line">        mid = (low+high)/<span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> array[mid] == value &#123; <span class="keyword">return</span> mid &#125;</span><br><span class="line">        <span class="keyword">if</span> array[mid] &gt; value &#123;</span><br><span class="line">            high = mid-<span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            low = mid+<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    插值查找：基于二分查找算法，将查找点的选择改进为自适应选择，可以提高查找效率。当然，差值查找也属于有序查找。查找成功或者失败的时间复杂度均为O(log2(log2n))。</span></span><br><span class="line"><span class="comment">    注：对于表长较大，而关键字分布又比较均匀的查找表来说，插值查找算法的平均性能比折半查找要好的多。反之，数组中如果分布非常不均匀，那么插值查找未必是很合适的选择。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">insertionSearch</span><span class="params">(<span class="number">_</span> value: Int, from array: [Int])</span></span> -&gt; <span class="type">Int</span>? &#123;</span><br><span class="line">    <span class="keyword">return</span> _insertionSearch(value, from: array, low: <span class="number">0</span>, high: array.<span class="built_in">count</span>-<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">_insertionSearch</span><span class="params">(<span class="number">_</span> value: Int, from array: [Int], low: Int, high: Int)</span></span> -&gt; <span class="type">Int</span>? &#123;</span><br><span class="line">    <span class="keyword">guard</span> low &lt; high <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> low == high &amp;&amp; array[low] == value &#123;</span><br><span class="line">            <span class="keyword">return</span> low</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> mid = low+(value-array[low])/(array[high]-array[low])*(high-low)</span><br><span class="line">    <span class="keyword">guard</span> mid &lt; array.<span class="built_in">count</span> &amp;&amp; array[mid] != value <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> mid &gt;= array.<span class="built_in">count</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mid</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> array[mid] &gt; value &#123;</span><br><span class="line">        <span class="keyword">return</span> _insertionSearch(value, from: array, low: low, high: mid-<span class="number">1</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> _insertionSearch(value, from: array, low: mid+<span class="number">1</span>, high: high)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   斐波那契查找：也是二分查找的一种提升算法，通过运用黄金比例的概念在数列中选择查找点进行查找，提高查找效率。同样地，斐波那契查找也属于一种有序查找算法。最坏情况下，时间复杂度为O(log2n)，且其期望复杂度也为O(log2n)。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fibonacciSearch</span><span class="params">(<span class="number">_</span> value: Int, from array: [Int])</span></span> -&gt; <span class="type">Int</span>? &#123;</span><br><span class="line">    <span class="keyword">guard</span> !array.isEmpty <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> low = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> high = array.<span class="built_in">count</span>-<span class="number">1</span></span><br><span class="line">    <span class="keyword">var</span> fibonacciArray = [<span class="type">Int</span>].<span class="keyword">init</span>(repeating: <span class="number">0</span>, <span class="built_in">count</span>: <span class="number">20</span>)</span><br><span class="line">    fibonacciArray[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">2</span>...<span class="number">19</span> &#123;</span><br><span class="line">        fibonacciArray[i] = fibonacciArray[i-<span class="number">1</span>]+fibonacciArray[i-<span class="number">2</span>]</span><br><span class="line">    &#125;<span class="comment">//构造一个斐波那契数组</span></span><br><span class="line">    <span class="keyword">var</span> k = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> array.<span class="built_in">count</span> &gt; fibonacciArray[k]-<span class="number">1</span> &#123;</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">    &#125;<span class="comment">//计算n位于斐波那契数列的位置</span></span><br><span class="line">    <span class="keyword">var</span> temp = [<span class="type">Int</span>].<span class="keyword">init</span>(repeating: <span class="number">0</span>, <span class="built_in">count</span>: fibonacciArray[k]-<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...array.<span class="built_in">count</span>-<span class="number">1</span> &#123;</span><br><span class="line">        temp[i] = array[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> array.<span class="built_in">count</span>..&lt;fibonacciArray[k]-<span class="number">1</span> &#123;</span><br><span class="line">        temp[i] = array.last!</span><br><span class="line">    &#125;<span class="comment">//将数组a复制到F[k]-1的长度的temp数组，剩余数用末尾填充</span></span><br><span class="line">    <span class="keyword">while</span> low &lt;= high &#123;</span><br><span class="line">        <span class="keyword">let</span> mid = low+fibonacciArray[k-<span class="number">1</span>]-<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> value &lt; temp[mid] &#123;</span><br><span class="line">            high = mid-<span class="number">1</span></span><br><span class="line">            k -= <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> value &gt; temp[mid] &#123;</span><br><span class="line">            low = mid+<span class="number">1</span></span><br><span class="line">            k -= <span class="number">2</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> mid &lt; array.<span class="built_in">count</span>-<span class="number">1</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> mid</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> array.<span class="built_in">count</span>-<span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    树表查找</span></span><br><span class="line"><span class="comment">    最简单的树表查找算法——二叉树查找算法。它和二分查找一样，插入和查找的时间复杂度均为O(logn)，但是在最坏的情况下仍然会有O(n)的时间复杂度。原因在于插入和删除元素的时候，树没有保持平衡</span></span><br><span class="line"><span class="comment">        基本思想：二叉查找树是先对待查找的数据进行生成树，确保树的左分支的值小于右分支的值，然后在就行和每个节点的父节点比较大小，查找最适合的范围。 这个算法的查找效率很高，但是如果使用这种查找方法要首先创建树。</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">        二叉查找树（BinarySearch Tree，也叫二叉搜索树，或称二叉排序树Binary Sort Tree）或者是一棵空树，或者是具有下列性质的二叉树：</span></span><br><span class="line"><span class="comment">        　　1）若任意节点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</span></span><br><span class="line"><span class="comment">        　　2）若任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</span></span><br><span class="line"><span class="comment">        　　  3）任意节点的左、右子树也分别为二叉查找树。</span></span><br><span class="line"><span class="comment">       二叉查找树性质：对二叉查找树进行中序遍历，即可得到有序的数列。</span></span><br><span class="line"><span class="comment"> 　  基于二叉查找树进行优化，进而可以得到其他的树表查找算法，如平衡树、红黑树等高效算法。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    树表查找</span></span><br><span class="line"><span class="comment">    平衡查找树之2-3查找树（2-3 Tree）</span></span><br><span class="line"><span class="comment">    2-3查找树定义：和二叉树不一样，2-3树运行每个节点保存1个或者两个的值。对于普通的2节点(2-node)，他保存1个key和左右两个自己点。对应3节点(3-node)，保存两个Key，2-3查找树的定义如下：</span></span><br><span class="line"><span class="comment">    　　  1）要么为空，要么：</span></span><br><span class="line"><span class="comment">    　　2）对于2节点，该节点保存一个key及对应value，以及两个指向左右节点的节点，左节点也是一个2-3节点，所有的值都比key要小，右节点也是一个2-3节点，所有的值比key要大。</span></span><br><span class="line"><span class="comment">    　　3）对于3节点，该节点保存两个key及对应value，以及三个指向左中右的节点。左节点也是一个2-3节点，所有的值均比两个key中的最小的key还要小；中间节点也是一个2-3节点，中间节点的key值在两个跟节点key值之间；右节点也是一个2-3节点，节点的所有key值比两个key中的最大的key还要大。</span></span><br><span class="line"><span class="comment">    2-3查找树的性质：</span></span><br><span class="line"><span class="comment">    　　  1）如果中序遍历2-3查找树，就可以得到排好序的序列；</span></span><br><span class="line"><span class="comment">    　　2）在一个完全平衡的2-3查找树中，根节点到每一个为空节点的距离都相同。（这也是平衡树中“平衡”一词的概念，根节点到叶节点的最长距离对应于查找算法的最坏情况，而平衡树中根节点到叶节点的距离都一样，最坏情况也具有对数复杂度。）</span></span><br><span class="line"><span class="comment"> 　　　　</span></span><br><span class="line"><span class="comment">    在最坏的情况下，也就是所有的节点都是2-node节点，查找效率为lgN</span></span><br><span class="line"><span class="comment">    在最好的情况下，所有的节点都是3-node节点，查找效率为log3N约等于0.631lgN</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    树表查找</span></span><br><span class="line"><span class="comment">    平衡查找树之红黑树（Red-Black Tree）</span></span><br><span class="line"><span class="comment">    　2-3查找树能保证在插入元素之后能保持树的平衡状态，最坏情况下即所有的子节点都是2-node，树的高度为lgn，从而保证了最坏情况下的时间复杂度。但是2-3树实现起来比较复杂，于是就有了一种简单实现2-3树的数据结构，即红黑树（Red-Black Tree）。</span></span><br><span class="line"><span class="comment">    　　基本思想：红黑树的思想就是对2-3查找树进行编码，尤其是对2-3查找树中的3-nodes节点添加额外的信息。红黑树中将节点之间的链接分为两种不同类型，红色链接，他用来链接两个2-nodes节点来表示一个3-nodes节点。黑色链接用来链接普通的2-3节点。特别的，使用红色链接的两个2-nodes来表示一个3-nodes节点，并且向左倾斜，即一个2-node是另一个2-node的左子节点。这种做法的好处是查找的时候不用做任何修改，和普通的二叉查找树相同。</span></span><br><span class="line"><span class="comment">    红黑树是一种具有红色和黑色链接的平衡查找树，同时满足：</span></span><br><span class="line"><span class="comment">        红色节点向左倾斜</span></span><br><span class="line"><span class="comment">        一个节点不可能有两个红色链接</span></span><br><span class="line"><span class="comment">        整个树完全黑色平衡，即从根节点到所以叶子结点的路径上，黑色链接的个数都相同。</span></span><br><span class="line"><span class="comment">    红黑树的性质：整个树完全黑色平衡，即从根节点到所以叶子结点的路径上，黑色链接的个数都相同（2-3树的第2）性质，从根节点到叶子节点的距离都相等）。</span></span><br><span class="line"><span class="comment">    最坏的情况就是，红黑树中除了最左侧路径全部是由3-node节点组成，即红黑相间的路径长度是全黑路径长度的2倍。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    树表查找</span></span><br><span class="line"><span class="comment">    B树和B+树（B Tree/B+ Tree）</span></span><br><span class="line"><span class="comment">    树可以看作是对2-3查找树的一种扩展，即他允许每个节点有M-1个子节点。</span></span><br><span class="line"><span class="comment">        根节点至少有两个子节点</span></span><br><span class="line"><span class="comment">        每个节点有M-1个key，并且以升序排列</span></span><br><span class="line"><span class="comment">        位于M-1和M key的子节点的值位于M-1 和M key对应的Value之间</span></span><br><span class="line"><span class="comment">        其它节点至少有M/2个子节点</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    B+树是对B树的一种变形树，它与B树的差异在于：</span></span><br><span class="line"><span class="comment">        有k个子结点的结点必然有k个关键码；</span></span><br><span class="line"><span class="comment">        非叶结点仅具有索引作用，跟记录有关的信息均存放在叶结点中。</span></span><br><span class="line"><span class="comment">        树的所有叶结点构成一个有序链表，可以按照关键码排序的次序遍历全部记录。</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    B和B+树的区别在于，B+树的非叶子结点只包含导航信息，不包含实际的值，所有的叶子结点和相连的节点使用链表相连，便于区间查找和遍历。</span></span><br><span class="line"><span class="comment">    但是B树也有优点，其优点在于，由于B树的每一个节点都包含key和value，因此经常访问的元素可能离根节点更近，因此访问也更迅速。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    分块查找：分块查找又称索引顺序查找，它是顺序查找的一种改进方法。将n个数据元素"按块有序"划分为m块（m ≤ n）。每一块中的结点不必有序，但块与块之间必须"按块有序"；即第1块中任一元素的关键字都必须小于第2块中任一元素的关键字；而第2块中任一元素又都必须小于第3块中的任一元素.</span></span><br><span class="line"><span class="comment">    算法流程：</span></span><br><span class="line"><span class="comment">    　　step1 先选取各块中的最大关键字构成一个索引表；</span></span><br><span class="line"><span class="comment">    　　step2 查找分两个部分：先对索引表进行二分查找或顺序查找，以确定待查记录在哪一块中；然后，在已确定的块中用顺序法进行查找。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    哈希查找：</span></span><br><span class="line"><span class="comment">    哈希的思路很简单，如果所有的键都是整数，那么就可以使用一个简单的无序数组来实现：将键作为索引，值即为其对应的值，这样就可以快速访问任意键的值。这是对于简单的键的情况，我们将其扩展到可以处理更加复杂的类型的键。</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    算法流程：</span></span><br><span class="line"><span class="comment">        1）用给定的哈希函数构造哈希表；</span></span><br><span class="line"><span class="comment">        2）根据选择的冲突处理方法解决地址冲突；</span></span><br><span class="line"><span class="comment">            常见的解决冲突的方法：拉链法和线性探测法。详细的介绍可以参见：浅谈算法和数据结构: 十一 哈希表。</span></span><br><span class="line"><span class="comment">        3）在哈希表的基础上执行哈希查找。</span></span><br><span class="line"><span class="comment">    哈希表是一个在时间和空间上做出权衡的经典例子。如果没有内存限制，那么可以直接将键作为数组的索引。那么所有的查找时间复杂度为O(1)；如果没有时间限制，那么我们可以使用无序数组并进行顺序查找，这样只需要很少的内存。哈希表使用了适度的时间和空间来在这两个极端之间找到了平衡。只需要调整哈希函数算法即可在时间和空间上做出取舍。</span></span><br><span class="line"><span class="comment"> 　　　　</span></span><br><span class="line"><span class="comment"> 　　　　单纯论查找复杂度：对于无冲突的Hash表而言，查找复杂度为O(1)（注意，在查找之前我们需要构建相应的Hash表）。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> array:[<span class="type">Int</span>] = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">15</span>]</span><br><span class="line">binarySearch(<span class="number">4</span>, from: array)</span><br><span class="line">insertionSearch(<span class="number">15</span>, from: array)</span><br><span class="line">fibonacciSearch(<span class="number">5</span>, from: array)</span><br></pre></td></tr></table></figure>
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://developer.iscuec.club">Jonathan Lu</a>
+            <p>原文链接：<a href="http://developer.iscuec.club/2020/08/29/算法基础（三）排序和搜索/">http://developer.iscuec.club/2020/08/29/算法基础（三）排序和搜索/</a>
+            <p>发表日期：<a href="http://developer.iscuec.club/2020/08/29/算法基础（三）排序和搜索/">August 29th 2020, 9:54:01 pm</a>
+            <p>更新日期：<a href="http://developer.iscuec.club/2020/08/29/算法基础（三）排序和搜索/">October 5th 2021, 11:34:35 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/08/29/算法基础（五）树综合/" title= "算法基础（五）树综合">
+                    <div class="prevTitle">算法基础（五）树综合</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80MjIxMC8xODc1Nw==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:jonathanlu1998@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/jonathanlu98" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+    <div class="beian" style="text-align:center;">
+    <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
+    <a href="http://www.beian.miit.gov.cn"  style="color:#f72b07" target="_blank">苏ICP备19055780号-1</a>
+    </div>
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法基础（三）排序和搜索"><span class="toc-number">1.</span> <span class="toc-text">算法基础（三）排序和搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.1.</span> <span class="toc-text">排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搜索"><span class="toc-number">1.2.</span> <span class="toc-text">搜索</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 14
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/29</span><a class="archive-post-title" href= "/2020/08/29/算法基础（三）排序和搜索/" >算法基础（三）排序和搜索</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/29</span><a class="archive-post-title" href= "/2020/08/29/算法基础（五）树综合/" >算法基础（五）树综合</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/29</span><a class="archive-post-title" href= "/2020/08/29/算法基础（四）链表综合/" >算法基础（四）链表综合</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/29</span><a class="archive-post-title" href= "/2020/08/29/算法基础（六） 题目综合/" >算法基础（六） 题目综合</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span><a class="archive-post-title" href= "/2020/07/02/实习面试整理/" >实习面试整理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2020/06/10/算法基础（二）数据结构/" >算法基础（二）数据结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/03</span><a class="archive-post-title" href= "/2020/05/03/算法基础（一）基本的数据结构（数组、集合、字典、字符串）/" >算法基础（一）基本的数据结构（数组、集合、字典、字符串）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href= "/2020/04/10/回顾C、C++、Java/" >回顾C、C++、Java</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/06</span><a class="archive-post-title" href= "/2020/03/06/OC-声明小记/" >OC-声明小记（一）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/05</span><a class="archive-post-title" href= "/2020/03/05/OC-枚举的学问/" >OC-枚举的学问</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2019/11/12/iSCUEC Demo的发布/" >项目分享 ：iSCUEC Demo 发布了</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2019/10/23/关于网站的搭建/" >博客网站的迁移</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/13</span><a class="archive-post-title" href= "/2019/08/13/iOS小记 ：第一次开发完成经历/" >iOS小记 ：第一次开发完成经历</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/19</span><a class="archive-post-title" href= "/2019/01/19/如何使用Reveal/" >如何使用Reveal</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="iOS小记"><span class="iconfont-archer">&#xe606;</span>iOS小记</span>
+    
+        <span class="sidebar-tag-name" data-tags="项目分享"><span class="iconfont-archer">&#xe606;</span>项目分享</span>
+    
+        <span class="sidebar-tag-name" data-tags="分享"><span class="iconfont-archer">&#xe606;</span>分享</span>
+    
+        <span class="sidebar-tag-name" data-tags="实习准备"><span class="iconfont-archer">&#xe606;</span>实习准备</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Jonathan Lu"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
